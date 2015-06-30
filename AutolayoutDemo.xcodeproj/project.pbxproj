@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CC468F88C0D7C007471F95B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 543598B8C39DFD7A346D78E2 /* libPods.a */; };
+		D91CC78B1B41521700800862 /* UIView+LayoutAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CC78A1B41521700800862 /* UIView+LayoutAdditions.m */; };
+		D91CC78E1B4155F800800862 /* FreeLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CC78D1B4155F800800862 /* FreeLayoutView.m */; };
+		D95CFBB21B42624D002DE528 /* LineLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CFBB11B42624D002DE528 /* LineLayoutView.m */; };
 		D99D44EB1B3BE26F00BA4CCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D44EA1B3BE26F00BA4CCE /* main.m */; };
 		D99D44EE1B3BE26F00BA4CCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D44ED1B3BE26F00BA4CCE /* AppDelegate.m */; };
 		D99D44F11B3BE26F00BA4CCE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D44F01B3BE26F00BA4CCE /* ViewController.m */; };
@@ -14,6 +18,10 @@
 		D99D44F61B3BE26F00BA4CCE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99D44F51B3BE26F00BA4CCE /* Images.xcassets */; };
 		D99D44F91B3BE26F00BA4CCE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99D44F71B3BE26F00BA4CCE /* LaunchScreen.xib */; };
 		D99D45051B3BE26F00BA4CCE /* AutolayoutDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D45041B3BE26F00BA4CCE /* AutolayoutDemoTests.m */; };
+		D99D45111B3BE2E800BA4CCE /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D45101B3BE2E800BA4CCE /* UIViewAdditions.m */; };
+		D99D45141B3BE30200BA4CCE /* UIView+LinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D45131B3BE30200BA4CCE /* UIView+LinearLayout.m */; };
+		D99D45181B3BE3A400BA4CCE /* UILabel+AutoResize.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D45171B3BE3A400BA4CCE /* UILabel+AutoResize.m */; };
+		D99D451B1B3BFA6900BA4CCE /* UIView+FreeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D451A1B3BFA6900BA4CCE /* UIView+FreeLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +35,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		543598B8C39DFD7A346D78E2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C899416D1032F282456E6149 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D61C7265EE0B9A5D4F08371A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D91CC7891B41521700800862 /* UIView+LayoutAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LayoutAdditions.h"; sourceTree = "<group>"; };
+		D91CC78A1B41521700800862 /* UIView+LayoutAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutAdditions.m"; sourceTree = "<group>"; };
+		D91CC78C1B4155F800800862 /* FreeLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeLayoutView.h; sourceTree = "<group>"; };
+		D91CC78D1B4155F800800862 /* FreeLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeLayoutView.m; sourceTree = "<group>"; };
+		D95CFBB01B42624D002DE528 /* LineLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayoutView.h; sourceTree = "<group>"; };
+		D95CFBB11B42624D002DE528 /* LineLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLayoutView.m; sourceTree = "<group>"; };
 		D99D44E51B3BE26F00BA4CCE /* AutolayoutDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutolayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99D44E91B3BE26F00BA4CCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D99D44EA1B3BE26F00BA4CCE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +57,14 @@
 		D99D44FE1B3BE26F00BA4CCE /* AutolayoutDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutolayoutDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99D45031B3BE26F00BA4CCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D99D45041B3BE26F00BA4CCE /* AutolayoutDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutolayoutDemoTests.m; sourceTree = "<group>"; };
+		D99D450F1B3BE2E800BA4CCE /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAdditions.h; sourceTree = "<group>"; };
+		D99D45101B3BE2E800BA4CCE /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
+		D99D45121B3BE30200BA4CCE /* UIView+LinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LinearLayout.h"; sourceTree = "<group>"; };
+		D99D45131B3BE30200BA4CCE /* UIView+LinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LinearLayout.m"; sourceTree = "<group>"; };
+		D99D45161B3BE3A400BA4CCE /* UILabel+AutoResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AutoResize.h"; sourceTree = "<group>"; };
+		D99D45171B3BE3A400BA4CCE /* UILabel+AutoResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AutoResize.m"; sourceTree = "<group>"; };
+		D99D45191B3BFA6900BA4CCE /* UIView+FreeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FreeLayout.h"; sourceTree = "<group>"; };
+		D99D451A1B3BFA6900BA4CCE /* UIView+FreeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FreeLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC468F88C0D7C007471F95B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +86,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		127767AA5CEDE22B9A38143A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				543598B8C39DFD7A346D78E2 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58DA1A786128E7042FC00D5C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C899416D1032F282456E6149 /* Pods.debug.xcconfig */,
+				D61C7265EE0B9A5D4F08371A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D99D44DC1B3BE26F00BA4CCE = {
 			isa = PBXGroup;
 			children = (
 				D99D44E71B3BE26F00BA4CCE /* AutolayoutDemo */,
 				D99D45011B3BE26F00BA4CCE /* AutolayoutDemoTests */,
 				D99D44E61B3BE26F00BA4CCE /* Products */,
+				58DA1A786128E7042FC00D5C /* Pods */,
+				127767AA5CEDE22B9A38143A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,10 +126,15 @@
 		D99D44E71B3BE26F00BA4CCE /* AutolayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D99D450E1B3BE2E000BA4CCE /* Autolayout */,
 				D99D44EC1B3BE26F00BA4CCE /* AppDelegate.h */,
 				D99D44ED1B3BE26F00BA4CCE /* AppDelegate.m */,
 				D99D44EF1B3BE26F00BA4CCE /* ViewController.h */,
 				D99D44F01B3BE26F00BA4CCE /* ViewController.m */,
+				D91CC78C1B4155F800800862 /* FreeLayoutView.h */,
+				D91CC78D1B4155F800800862 /* FreeLayoutView.m */,
+				D95CFBB01B42624D002DE528 /* LineLayoutView.h */,
+				D95CFBB11B42624D002DE528 /* LineLayoutView.m */,
 				D99D44F21B3BE26F00BA4CCE /* Main.storyboard */,
 				D99D44F51B3BE26F00BA4CCE /* Images.xcassets */,
 				D99D44F71B3BE26F00BA4CCE /* LaunchScreen.xib */,
@@ -119,6 +169,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D99D450E1B3BE2E000BA4CCE /* Autolayout */ = {
+			isa = PBXGroup;
+			children = (
+				D99D45151B3BE3A400BA4CCE /* UILabel+AutoResize */,
+				D99D450F1B3BE2E800BA4CCE /* UIViewAdditions.h */,
+				D99D45101B3BE2E800BA4CCE /* UIViewAdditions.m */,
+				D91CC7891B41521700800862 /* UIView+LayoutAdditions.h */,
+				D91CC78A1B41521700800862 /* UIView+LayoutAdditions.m */,
+				D99D45121B3BE30200BA4CCE /* UIView+LinearLayout.h */,
+				D99D45131B3BE30200BA4CCE /* UIView+LinearLayout.m */,
+				D99D45191B3BFA6900BA4CCE /* UIView+FreeLayout.h */,
+				D99D451A1B3BFA6900BA4CCE /* UIView+FreeLayout.m */,
+			);
+			path = Autolayout;
+			sourceTree = "<group>";
+		};
+		D99D45151B3BE3A400BA4CCE /* UILabel+AutoResize */ = {
+			isa = PBXGroup;
+			children = (
+				D99D45161B3BE3A400BA4CCE /* UILabel+AutoResize.h */,
+				D99D45171B3BE3A400BA4CCE /* UILabel+AutoResize.m */,
+			);
+			path = "UILabel+AutoResize";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D99D45081B3BE26F00BA4CCE /* Build configuration list for PBXNativeTarget "AutolayoutDemo" */;
 			buildPhases = (
+				1FA204319683F13464EA299C /* Check Pods Manifest.lock */,
 				D99D44E11B3BE26F00BA4CCE /* Sources */,
 				D99D44E21B3BE26F00BA4CCE /* Frameworks */,
 				D99D44E31B3BE26F00BA4CCE /* Resources */,
+				483154119043032DA28FB41E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,13 +291,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1FA204319683F13464EA299C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		483154119043032DA28FB41E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D99D44E11B3BE26F00BA4CCE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D99D45111B3BE2E800BA4CCE /* UIViewAdditions.m in Sources */,
+				D99D45141B3BE30200BA4CCE /* UIView+LinearLayout.m in Sources */,
+				D91CC78B1B41521700800862 /* UIView+LayoutAdditions.m in Sources */,
 				D99D44F11B3BE26F00BA4CCE /* ViewController.m in Sources */,
+				D95CFBB21B42624D002DE528 /* LineLayoutView.m in Sources */,
+				D99D45181B3BE3A400BA4CCE /* UILabel+AutoResize.m in Sources */,
 				D99D44EE1B3BE26F00BA4CCE /* AppDelegate.m in Sources */,
+				D99D451B1B3BFA6900BA4CCE /* UIView+FreeLayout.m in Sources */,
+				D91CC78E1B4155F800800862 /* FreeLayoutView.m in Sources */,
 				D99D44EB1B3BE26F00BA4CCE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,7 +416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -336,7 +453,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -345,9 +462,11 @@
 		};
 		D99D45091B3BE26F00BA4CCE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C899416D1032F282456E6149 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AutolayoutDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -355,9 +474,11 @@
 		};
 		D99D450A1B3BE26F00BA4CCE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D61C7265EE0B9A5D4F08371A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AutolayoutDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -416,6 +537,7 @@
 				D99D450A1B3BE26F00BA4CCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D99D450B1B3BE26F00BA4CCE /* Build configuration list for PBXNativeTarget "AutolayoutDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +546,7 @@
 				D99D450D1B3BE26F00BA4CCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
