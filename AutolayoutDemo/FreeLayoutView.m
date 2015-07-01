@@ -8,10 +8,8 @@
 
 #import "FreeLayoutView.h"
 #import "UILabel+AutoResize.h"
-#import "UIView+LinearLayout.h"
 #import "UIViewAdditions.h"
 #import "UIView+FreeLayout.h"
-#import "UIView+LinearLayout.h"
 
 @interface FreeLayoutView ()
 
@@ -126,6 +124,16 @@
         [self addSubview:lab];
         self.lab12 = lab;
     }
+    
+    //纯自由相对布局(较复杂)
+    [self freelayoutWithStart:FLVertexLeftTop
+                        block:^(FreeLayout *layout) {
+                            layout.freelayoutItem(self.lab8,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
+                                  .freelayoutItem(self.lab9,FLVertexLeftTop,FLVertexLeftBottom,UIOffsetMake(0, 10))
+                                  .freelayoutItem(self.lab10,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
+                                  .freelayoutItem(self.lab11,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 10))
+                                  .freelayoutItem(self.lab12,FLVertexRightTop,FLVertexRightBottom,UIOffsetMake(0, 10));
+                        }];
 }
 
 #pragma mark - layoutSubviews 子视图布局
@@ -136,12 +144,6 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     
-    //纯自由相对布局(较复杂)
-    [self freelayoutSubview:self.lab8 vertexBrfore:FLVertexLeftTop vertexAfter:FLVertexRightTop offset:UIOffsetMake(10, 0)];
-    [self freelayoutSubview:self.lab9 vertexBrfore:FLVertexLeftTop vertexAfter:FLVertexLeftBottom offset:UIOffsetMake(0, 10)];
-    [self freelayoutSubview:self.lab10 vertexBrfore:FLVertexLeftTop vertexAfter:FLVertexRightTop offset:UIOffsetMake(10, 0)];
-    [self freelayoutSubview:self.lab11 vertexBrfore:FLVertexLeftTop vertexAfter:FLVertexRightBottom offset:UIOffsetMake(0, 10)];
-    [self freelayoutSubview:self.lab12 vertexBrfore:FLVertexRightTop vertexAfter:FLVertexRightBottom offset:UIOffsetMake(0, 0)];    
 }
 
 #pragma mark - Action && UIGestureRecognizer 控件&&手势响应

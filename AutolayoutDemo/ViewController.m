@@ -8,12 +8,11 @@
 
 #import "ViewController.h"
 #import "UILabel+AutoResize.h"
-#import "UIView+LinearLayout.h"
 #import "UIViewAdditions.h"
 #import "UIView+FreeLayout.h"
 
+#import "UIView+LayoutAdditions.h"
 #import "LineLayoutView.h"
-
 #import "FreeLayoutView.h"
 
 @interface ViewController ()
@@ -249,61 +248,21 @@
  */
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
+
+    self.view.backgroundColor = [UIColor grayColor];
     
     //每次重新开始布局时需要复原布局参数
     self.view.insets = UIEdgeInsetsMake(100, 20, 20, 20);
-//    [self.view floatReset];
-    
-    self.view.backgroundColor = [UIColor grayColor];
-    
-    //长屏(iPhone5及以上) 短屏(iPhone4S以下)
-//    CGFloat spacingY = 20;
-    //    self.lab1.margins = UIEdgeInsetsMake(50, 50, 50, 50);
-    
-    /***** 1 2 3 4 ******/
-    //从上向下线性布局
-//    self.view
-//        .flowTopSpacing(100)
-//        .flowTopSubview(self.lab1,LLVerticalAlignmentRight,spacingY)
-//        .flowTopSubview(self.lab2,LLVerticalAlignmentRight,spacingY)
-//        .flowTopSubview(self.lab3,LLVerticalAlignmentRight,spacingY)
-//        .flowTopSubview(self.lab4,LLVerticalAlignmentRight,spacingY);
-    
-    /***** 5 6 7 ******/
-    //从下向上线性布局
-//    self.view
-//        .flowBottomSubview(self.lab5,LLVerticalAlignmentCenter,spacingY)
-//        .flowBottomSubview(self.lab6,LLVerticalAlignmentCenter,spacingY)
-//        .flowBottomSubview(self.lab7,LLVerticalAlignmentCenter,spacingY);
-    
-    //从左到右线性布局
-//    self.view
-//        .flowLeftSubview(self.lab5,LLHorizontalAlignmentCenter,5)
-//        .flowLeftSubview(self.lab6,LLHorizontalAlignmentCenter,5)
-//        .flowLeftSubview(self.lab7,LLHorizontalAlignmentCenter,5);
-    
-    //自由布局(上向下线性布局)
-    CGFloat spacingY = 20;
-//    [self.view freelayoutOffset:UIOffsetMake(self.view.insets.left, self.view.insets.top)];
-//    [self.view freelayoutSubview:self.lab5 vertexBrfore:FLVertexLeftTop vertexAfter:FLVertexLeftBottom offset:UIOffsetMake(0, spacingY)];
-//    [self.view freelayoutSubview:self.lab6 vertexBrfore:FLVertexLeftTop vertexAfter:FLVertexLeftBottom offset:UIOffsetMake(0, spacingY)];
-//    [self.view freelayoutSubview:self.lab7 vertexBrfore:FLVertexLeftTop vertexAfter:FLVertexLeftBottom offset:UIOffsetMake(0, spacingY)];
-        
-    //重叠
-//    [self.view freelayoutOffset:CGPointMake(100, 100)];
-//    [self.view freelayoutSubview:self.lab5 vertexBrfore:FLVertexLeftTop vertexAfter:FLVertexLeftTop offset:UIOffsetMake(10, 10)];
-//    [self.view freelayoutSubview:self.lab6 vertexBrfore:FLVertexLeftTop vertexAfter:FLVertexLeftTop offset:UIOffsetMake(10, 10)];
-//    [self.view freelayoutSubview:self.lab7 vertexBrfore:FLVertexLeftTop vertexAfter:FLVertexLeftTop offset:UIOffsetMake(10, 10)];
     
     //纯自由布局
     self.freeLayoutView.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     self.freeLayoutView.height = 400;
-    self.freeLayoutView.hidden = YES;
+    self.freeLayoutView.hidden = NO;
     
     //线性布局
     self.lineLayoutView.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     self.lineLayoutView.height = 400;
-    self.lineLayoutView.hidden = NO;
+    self.lineLayoutView.hidden = YES;
 }
 
 
