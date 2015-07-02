@@ -23,8 +23,17 @@ typedef enum {
 } FLVertex;
 
 @class FreeLayout;
+@class LayoutItem;
+
 //使用Block实现链式语法
-typedef FreeLayout *(^FreeLayoutItemBlock)(UIView *subview,FLVertex vertexBrfore,FLVertex vertexAfter,UIOffset offset);
+typedef FreeLayout *(^AddFreeLayoutTupleBlock)(UIView *subview,FLVertex vertexBrfore,FLVertex vertexAfter,UIOffset offset);
+
+//只添加一个subview类型的的layoutItem
+typedef FreeLayout *(^AddFreeLayoutSubviewBlock)(UIView *subview,FLVertex vertexBrfore,FLVertex vertexAfter);
+
+//只添加一个offset的layoutItem
+typedef FreeLayout *(^AddFreeLayoutOffsetBlock)(UIOffset offset);
+
 
 //相对布局对象
 @interface FreeLayout : NSObject
@@ -49,31 +58,33 @@ typedef FreeLayout *(^FreeLayoutItemBlock)(UIView *subview,FLVertex vertexBrfore
 
 -(FreeLayout*)freelayoutOffset:(UIOffset)offset;
 
-/*!
- *  @brief  对subview自动布局。根据vertexBrfore修改subview
- *
- */
 -(FreeLayout*)freelayoutSubview:(UIView *)subview
-               vertexBrfore:(FLVertex)vertexBrfore;
-/*!
- *  @brief  移动锚点位置到subview的vertexAfter
- *
- */
--(FreeLayout*)freelayoutSubview:(UIView *)subview
-                    vertexAfter:(FLVertex)vertexAfter
-                         offset:(UIOffset)offset;
+                   vertexBrfore:(FLVertex)vertexBrfore
+                    vertexAfter:(FLVertex)vertexAfter;
 
 -(FreeLayout*)freelayoutSubview:(UIView *)subview
                    vertexBrfore:(FLVertex)vertexBrfore
                     vertexAfter:(FLVertex)vertexAfter
                          offset:(UIOffset)offset;
 
+#pragma mark - 对外封装方法
+-(FreeLayout*)freelayoutItem:(LayoutItem *)layoutItem;
+
+//FreeLayoutItemBlock与freelayoutSubview:vertexBrfore:vertexAfter:offset等价
+@property(nonatomic,readonly) AddFreeLayoutTupleBlock freelayoutTuple;
+
+//只添加一个subview类型的的layoutItem
+@property(nonatomic,readonly) AddFreeLayoutSubviewBlock freeLayoutSubview;
+
+//只添加一个offset的layoutItem
+@property(nonatomic,readonly) AddFreeLayoutOffsetBlock freeLayoutOffset;
+
+#pragma mark - 私有方法
 /*!
- *  @brief  使用view、subview进行布局
+ *  @brief  使用view、subview进行布局(不要直接调用)
  *
  */
 -(void)layout;
 
-@property(nonatomic,readonly) FreeLayoutItemBlock freelayoutItem;
 
 @end

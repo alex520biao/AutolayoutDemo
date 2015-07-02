@@ -37,9 +37,9 @@ typedef enum {
 @property (nonatomic, assign) UIEdgeInsets margins;
 
 
-#pragma mark - UIView的9个顶点
+#pragma mark - UIView的9个顶点 vertex与frame、origin、center相似
 
-//左上顶点
+//左上顶点(等价于origin)
 @property (nonatomic, assign)CGPoint vertexLeftTop;
 
 //左中顶点
@@ -60,7 +60,7 @@ typedef enum {
 //中上顶点
 @property (nonatomic, assign)CGPoint vertexCenterTop;
 
-//中中顶点
+//中中顶点(等价于center)
 @property (nonatomic, assign)CGPoint vertexCenterCenter;
 
 //中下顶点

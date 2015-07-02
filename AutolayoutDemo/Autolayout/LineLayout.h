@@ -26,7 +26,12 @@ typedef enum {
 
 @class LineLayout;
 //使用Block实现链式语法
-typedef LineLayout *(^LineLayoutItemBlock)(UIView *subview,CGFloat spacing);
+typedef LineLayout *(^AddLineLayoutTupleBlock)(UIView *subview,CGFloat spacing);
+
+typedef LineLayout *(^AddLineLayoutSubviewBlock)(UIView *subview);
+
+//spacing表示子视图之间的间距，必须为非负数
+typedef LineLayout *(^AddLineLayoutSpacingBlock)(CGFloat spacing);
 
 //线性布局对象
 @interface LineLayout : FreeLayout
@@ -35,14 +40,19 @@ typedef LineLayout *(^LineLayoutItemBlock)(UIView *subview,CGFloat spacing);
 
 
 -(LineLayout*)initWithView:(UIView*)view
-                     type:(LLType)type;
+                      type:(LLType)type;
 
--(LineLayout*)linelayoutSubview:(UIView *)subview
-                        spacing:(CGFloat)spacing;
+#pragma mark - 包装Block
+//LineLayoutItemBlock与linelayoutSubview:spacing等价
+@property(nonatomic,readonly) AddLineLayoutTupleBlock linelayoutTuple;
 
-@property(nonatomic,readonly) LineLayoutItemBlock linelayoutItem;
+@property(nonatomic,readonly) AddLineLayoutSubviewBlock lineLayoutSubview;
+
+//spacing表示子视图之间的间距，必须为非负数
+@property(nonatomic,readonly) AddLineLayoutSpacingBlock lineLayoutSpacing;
 
 
+#pragma mark - 私有方法
 -(void)layout;
 
 

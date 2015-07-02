@@ -18,200 +18,250 @@
     if (self) {
         self.type = type;
         self.view = view;
+        
+        //设置startVertex
+        [self setStartVertexWithType:type];
     }
     return self;
 }
 
--(void)linelayoutFreeAnchor:(LLType)type view:(UIView*)view{
-    CGPoint freeAnchor = self.freeAnchor;
+-(void)addLayoutItemWithSubview:(UIView *)subview{
     
+    LayoutItem *item = [[LayoutItem alloc] init];
+    item.subview = subview;
+    item.layoutItemType = LayoutItemTypeSubview;
+    
+    LLType type = self.type;
     //(左上顶点,向下)轴,内侧
     if (type == LLTypeLeftTop_Down) {
-        freeAnchor.x = view.insets.left;
-        freeAnchor.y = view.insets.top;
+        item.vertexBrfore = FLVertexLeftTop;
+        item.vertexAfter  = FLVertexLeftBottom;
     }
     //(左上顶点,向右)轴,内侧
     else if (type == LLTypeLeftTop_Right) {
-        freeAnchor.x = view.insets.left;
-        freeAnchor.y = view.insets.top;
+        item.vertexBrfore = FLVertexLeftTop;
+        item.vertexAfter  = FLVertexRightTop;
     }
     //(左中顶点,向右)轴,中间
     else if (type == LLTypeLeftCenter_Right) {
-        freeAnchor.x = view.insets.left;
-        freeAnchor.y = CGRectGetMidY(view.bounds);
+        item.vertexBrfore = FLVertexLeftCenter;
+        item.vertexAfter  = FLVertexRightCneter;
     }
     //(左下顶点,向上)轴,内侧
     else if (type == LLTypeLeftBottom_Up) {
-        freeAnchor.x = view.insets.left;
-        freeAnchor.y = view.height - view.insets.bottom;
+        item.vertexBrfore = FLVertexLeftBottom;
+        item.vertexAfter  = FLVertexLeftTop;
     }
     //(左下顶点,向右)轴,内侧
     else if (type == LLTypeLeftBottom_Right) {
-        freeAnchor.x = view.insets.left;
-        freeAnchor.y = view.height - view.insets.bottom;
+        item.vertexBrfore = FLVertexLeftBottom;
+        item.vertexAfter  = FLVertexRightBottom;
     }
     //(中上顶点,向下)轴,中间
     else if (type == LLTypeCenterTop_Down) {
-        freeAnchor.x = CGRectGetMidX(view.bounds);
-        freeAnchor.y = view.insets.top;
+        item.vertexBrfore = FLVertexCenterTop;
+        item.vertexAfter  = FLVertexCenterBottom;
     }
     //(中下顶点,向上)轴,中间
     else if (type == LLTypeCenterBottom_Up) {
-        freeAnchor.x = CGRectGetMidX(view.bounds);
-        freeAnchor.y = view.height - view.insets.bottom;
+        item.vertexBrfore = FLVertexCenterBottom;
+        item.vertexAfter  = FLVertexCenterTop;
     }
     //(右上顶点,向左)轴,内侧
     else if (type == LLTypeRightTop_Left) {
-        freeAnchor.x = view.width - view.insets.right;
-        freeAnchor.y = view.insets.top;
+        item.vertexBrfore = FLVertexRightTop;
+        item.vertexAfter  = FLVertexLeftTop;
     }
     //(右上顶点,向下)轴,内侧
     else if (type == LLTypeRightTop_Down) {
-        freeAnchor.x = view.width - view.insets.right;
-        freeAnchor.y = view.insets.top;
+        item.vertexBrfore = FLVertexRightTop;
+        item.vertexAfter  = FLVertexRightBottom;
     }
     //(右中顶点,向左)轴,中间
     else if (type == LLTypeRightCneter_Left) {
-        freeAnchor.x = view.width - view.insets.right;
-        freeAnchor.y = CGRectGetMidY(view.bounds);
+        item.vertexBrfore = FLVertexRightCneter;
+        item.vertexAfter  = FLVertexLeftCenter ;
     }
     //(右下顶点,向上)轴,内侧
     else if (type == LLTypeRightBottom_Up) {
-        freeAnchor.x = view.width - view.insets.right;
-        freeAnchor.y = view.height - view.insets.bottom;
+        item.vertexBrfore = FLVertexRightBottom;
+        item.vertexAfter  = FLVertexRightTop;
     }
     //(右下顶点,向左)轴,内侧
     else if (type == LLTypeRightBottom_Left) {
-        freeAnchor.x = view.width - view.insets.right;
-        freeAnchor.y = view.height - view.insets.bottom;
+        item.vertexBrfore = FLVertexRightBottom;
+        item.vertexAfter  = FLVertexLeftBottom;
     }
-    
-    self.freeAnchor = freeAnchor;
+    [self.layoutItemList addObject:item];
 }
 
--(LineLayout*)linelayoutSubview:(UIView *)subview
-                        spacing:(CGFloat)spacing{
-
-    return [self linelayoutSubview:subview type:self.type spacing:spacing];
-}
-
--(LineLayout*)linelayoutSubview:(UIView *)subview
-                      type:(LLType)type
-                    spacing:(CGFloat)spacing{
+-(void)addLayoutItemWithSpacing:(CGFloat)spacing{
     
+    LayoutItem *item = [[LayoutItem alloc] init];
+    item.layoutItemType = LayoutItemTypeOffset;
+    
+    LLType type = self.type;
+    UIOffset offset = UIOffsetZero;
     //(左上顶点,向下)轴,内侧
     if (type == LLTypeLeftTop_Down) {
-        [self freelayoutSubview:subview
-                   vertexBrfore:FLVertexLeftTop
-                    vertexAfter:FLVertexLeftBottom
-                         offset:UIOffsetMake(0, spacing)];
+        offset = UIOffsetMake(0, spacing);
     }
     //(左上顶点,向右)轴,内侧
     else if (type == LLTypeLeftTop_Right) {
-        [self freelayoutSubview:subview
-                   vertexBrfore:FLVertexLeftTop
-                    vertexAfter:FLVertexRightTop
-                         offset:UIOffsetMake(spacing,0)];
+        offset = UIOffsetMake(spacing,0);
     }
     //(左中顶点,向右)轴,中间
     else if (type == LLTypeLeftCenter_Right) {
-        [self freelayoutSubview:subview
-                   vertexBrfore:FLVertexLeftCenter
-                    vertexAfter:FLVertexRightCneter
-                         offset:UIOffsetMake(spacing, 0)];
+        offset = UIOffsetMake(spacing, 0);
     }
     //(左下顶点,向上)轴,内侧
     else if (type == LLTypeLeftBottom_Up) {
-        [self freelayoutSubview:subview
-                   vertexBrfore:FLVertexLeftBottom
-                    vertexAfter:FLVertexLeftTop
-                         offset:UIOffsetMake(0, -spacing)];
+        offset = UIOffsetMake(0, -spacing);
     }
     //(左下顶点,向右)轴,内侧
     else if (type == LLTypeLeftBottom_Right) {
-        [self freelayoutSubview:subview
-                   vertexBrfore:FLVertexLeftBottom
-                    vertexAfter:FLVertexRightBottom
-                         offset:UIOffsetMake(spacing, 0)];
+        offset = UIOffsetMake(spacing, 0);
     }
     //(中上顶点,向下)轴,中间
     else if (type == LLTypeCenterTop_Down) {
-        [self freelayoutSubview:subview
-                   vertexBrfore:FLVertexCenterTop
-                    vertexAfter:FLVertexCenterBottom
-                         offset:UIOffsetMake(0, spacing)];
+        offset = UIOffsetMake(0, spacing);
     }
     //(中下顶点,向上)轴,中间
     else if (type == LLTypeCenterBottom_Up) {
-        [self freelayoutSubview:subview
-                   vertexBrfore:FLVertexCenterBottom
-                    vertexAfter:FLVertexCenterTop
-                         offset:UIOffsetMake(0, -spacing)];
+        offset = UIOffsetMake(0, -spacing);
     }
     //(右上顶点,向左)轴,内侧
     else if (type == LLTypeRightTop_Left) {
-        [self freelayoutSubview:subview
-                   vertexBrfore:FLVertexRightTop
-                    vertexAfter:FLVertexLeftTop
-                         offset:UIOffsetMake(-spacing,0)];
+        offset = UIOffsetMake(-spacing,0);
     }
     //(右上顶点,向下)轴,内侧
     else if (type == LLTypeRightTop_Down) {
-        [self freelayoutSubview:subview
-                   vertexBrfore:FLVertexRightTop
-                    vertexAfter:FLVertexRightBottom
-                         offset:UIOffsetMake(0, spacing)];
+        offset = UIOffsetMake(0, spacing);
     }
     //(右中顶点,向左)轴,中间
     else if (type == LLTypeRightCneter_Left) {
-        [self freelayoutSubview:subview
-                   vertexBrfore:FLVertexRightCneter
-                    vertexAfter:FLVertexLeftCenter
-                         offset:UIOffsetMake(-spacing, 0)];
+        offset = UIOffsetMake(-spacing, 0);
     }
     //(右下顶点,向上)轴,内侧
     else if (type == LLTypeRightBottom_Up) {
-        [self freelayoutSubview:subview
-                   vertexBrfore:FLVertexRightBottom
-                    vertexAfter:FLVertexRightTop
-                         offset:UIOffsetMake(0, -spacing)];
+        offset = UIOffsetMake(0, -spacing);
     }
     //(右下顶点,向左)轴,内侧
     else if (type == LLTypeRightBottom_Left) {
-        [self freelayoutSubview:subview
-                   vertexBrfore:FLVertexRightBottom
-                    vertexAfter:FLVertexLeftBottom
-                         offset:UIOffsetMake(-spacing, 0)];
+        offset = UIOffsetMake(-spacing, 0);
+    }
+    item.offset = offset;
+    [self.layoutItemList addObject:item];
+}
+
+-(LineLayout*)addLinelayoutSubview:(UIView *)subview
+                           spacing:(CGFloat)spacing{
+    
+    if (subview) {
+        //subview
+        [self addLayoutItemWithSubview:subview];
+        
+        //spacing
+        [self addLayoutItemWithSpacing:spacing];
     }
     return self;
 }
 
-- (LineLayoutItemBlock) linelayoutItem{
+#pragma mark - 包装Block
+- (AddLineLayoutTupleBlock) linelayoutTuple{
     return ^(UIView *subview,CGFloat spacing) {
         
-        //subview必须是view的子视图
-        if(subview && [self.view.subviews containsObject:subview]){
-            LayoutItem *item = [[LayoutItem alloc] init];
-            item.subview = subview;
-            item.spacing = spacing;
-            [self.layoutItemList addObject:item];
+        //subview必须是view的子视图且未隐藏
+        if(subview && [self.view.subviews containsObject:subview] && !subview.hidden){
+            //subview
+            [self addLayoutItemWithSubview:subview];
+            
+            //spacing
+            [self addLayoutItemWithSpacing:spacing];
         }
         return self;
     };
 }
 
--(void)layout{    
-    if(self.view && self.layoutItemList.count>0){
-        //重置freeAnchor标识
-        [self linelayoutFreeAnchor:self.type view:self.view];
+- (AddLineLayoutSubviewBlock) lineLayoutSubview{
+    return ^(UIView *subview) {
         
-        for (int i=0; i<self.layoutItemList.count; i++) {
-            LayoutItem *item =[self.layoutItemList objectAtIndex:i];
-            if (item.subview) {
-                [self linelayoutSubview:item.subview type:self.type spacing:item.spacing];
-            }
+        //subview必须是view的子视图且未隐藏
+        if(subview && [self.view.subviews containsObject:subview] && !subview.hidden){
+            //subview
+            [self addLayoutItemWithSubview:subview];
         }
+        return self;
+    };
+}
+
+- (AddLineLayoutSpacingBlock) lineLayoutSpacing{
+    return ^(CGFloat spacing) {
+        
+        //spacing
+        [self addLayoutItemWithSpacing:spacing];
+        return self;
+    };
+}
+
+#pragma mark - 私有方法
+-(void)setStartVertexWithType:(LLType)type{
+    
+    FLVertex startVertex = FLVertexLeftTop;
+    //(左上顶点,向下)轴,内侧
+    if (type == LLTypeLeftTop_Down) {
+        startVertex = FLVertexLeftTop;
     }
+    //(左上顶点,向右)轴,内侧
+    else if (type == LLTypeLeftTop_Right) {
+        startVertex = FLVertexLeftTop;
+    }
+    //(左中顶点,向右)轴,中间
+    else if (type == LLTypeLeftCenter_Right) {
+        startVertex = FLVertexLeftCenter;
+    }
+    //(左下顶点,向上)轴,内侧
+    else if (type == LLTypeLeftBottom_Up) {
+        startVertex = FLVertexLeftBottom;
+    }
+    //(左下顶点,向右)轴,内侧
+    else if (type == LLTypeLeftBottom_Right) {
+        startVertex = FLVertexLeftBottom;
+    }
+    //(中上顶点,向下)轴,中间
+    else if (type == LLTypeCenterTop_Down) {
+        startVertex = FLVertexCenterTop;
+    }
+    //(中下顶点,向上)轴,中间
+    else if (type == LLTypeCenterBottom_Up) {
+        startVertex = FLVertexCenterBottom;
+    }
+    //(右上顶点,向左)轴,内侧
+    else if (type == LLTypeRightTop_Left) {
+        startVertex = FLVertexRightTop;
+    }
+    //(右上顶点,向下)轴,内侧
+    else if (type == LLTypeRightTop_Down) {
+        startVertex = FLVertexRightTop;
+    }
+    //(右中顶点,向左)轴,中间
+    else if (type == LLTypeRightCneter_Left) {
+        startVertex = FLVertexRightCneter;
+    }
+    //(右下顶点,向上)轴,内侧
+    else if (type == LLTypeRightBottom_Up) {
+        startVertex = FLVertexRightBottom;
+    }
+    //(右下顶点,向左)轴,内侧
+    else if (type == LLTypeRightBottom_Left) {
+        startVertex = FLVertexRightBottom;
+    }
+    self.startVertex = startVertex;
+}
+
+//重写父类方法
+-(void)layout{
+    [super layout];    
 }
 
 

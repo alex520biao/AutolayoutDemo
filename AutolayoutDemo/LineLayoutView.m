@@ -93,11 +93,11 @@
     }
     
     //添加线性布局约束
-    [self linelayoutWithType:LLTypeRightBottom_Left
+    [self linelayoutWithType:LLTypeRightCneter_Left
                        block:^(LineLayout *layout) {
-                            layout.linelayoutItem(self.lab5,10)
-                                  .linelayoutItem(self.lab6,10)
-                                  .linelayoutItem(self.lab7,10);
+                            layout.linelayoutTuple(self.lab5,10)
+                                  .linelayoutTuple(self.lab6,10)
+                                  .linelayoutTuple(self.lab7,10);
                         }];
 }
 

@@ -46,6 +46,7 @@ static const void *kPropertyKeyMargins = &kPropertyKeyMargins;
 }
 
 #pragma mark - UIView的9个顶点
+#warning 此处的Vertex表示的是subview的各个顶点针对frame的值
 //左上顶点
 -(void)setVertexLeftTop:(CGPoint)vertexLeftTop{
     self.left   = vertexLeftTop.x;
