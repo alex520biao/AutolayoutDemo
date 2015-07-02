@@ -13,6 +13,7 @@
 /*!
  *  @brief  自由布局是相对布局的实现
  *  @note   只管理子视图的位置,不会修改尺寸。简单需求使用FreeLayout较为简单。
+ *  @note   FreeLayout基本原理是使用一段二维折线将若干子视图串联起来，最后呈现出的布局效果。
  *
  */
 @interface UIView (FreeLayout)

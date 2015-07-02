@@ -12,6 +12,7 @@
 @class LineLayout;
 /*!
  *  @brief  UIView线性布局
+ #  @note   LineLayout是FreeLayout的一种特殊情况。使用一个二维线段将若干子视图串联起来，最后呈现出的布局效果。
  *
  */
 @interface UIView (LineLayout)
