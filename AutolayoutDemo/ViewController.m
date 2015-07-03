@@ -290,7 +290,7 @@
         cell.textLabel.text=@"Freelayout 任意曲线";
     }
     else if (indexPath.row == 3){
-        cell.textLabel.text=@"浮动(未)";
+        cell.textLabel.text=@"浮动";
     }
     return cell;
 }
