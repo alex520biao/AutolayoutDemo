@@ -12,10 +12,12 @@
 #import "UIView+FreeLayout.h"
 
 #import "UIView+LayoutAdditions.h"
-#import "LineLayoutView.h"
-#import "FreeLayoutView.h"
 
-@interface ViewController ()
+#import "StraightLinelayoutViewController.h"
+#import "FoldLinelayoutViewController.h"
+#import "FreelayoutViewController.h"
+
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong)UILabel *lab1;
 @property (nonatomic,strong)UILabel *lab2;
@@ -33,8 +35,8 @@
 @property (nonatomic,strong)UILabel *lab12;
 
 
-@property (nonatomic,strong)FreeLayoutView *freeLayoutView;
-@property (nonatomic,strong)LineLayoutView *lineLayoutView;
+
+@property (nonatomic,strong)UITableView *tb;
 
 @end
 
@@ -43,6 +45,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"Freelayout";
 
     {
         UILabel *lab=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 160, 30)];
@@ -218,19 +222,92 @@
         self.lab12 = lab;
     }
     
-    
-    FreeLayoutView *freeLayoutView = [[FreeLayoutView alloc] initWithFrame:CGRectMake(50, 50, 300, 300)];
-    [self.view addSubview:freeLayoutView];
-    self.freeLayoutView = freeLayoutView;
-    
-    LineLayoutView *lineLayoutView = [[LineLayoutView alloc] initWithFrame:CGRectMake(50, 50, 300, 300)];
-    [self.view addSubview:lineLayoutView];
-    self.lineLayoutView = lineLayoutView;
+    UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, self.view.height)
+                                                   style:UITableViewStylePlain];
+    tb.delegate =self;
+    tb.dataSource =self;
+    [self.view addSubview:tb];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark UITableViewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return nil;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier=@"cellIdentifier";
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if(cell==nil)
+    {
+        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    }
+    
+    //所有子视图由一根直线串联起来
+    if (indexPath.row == 0) {
+        cell.textLabel.text=@"StraightLinelayout 直线";
+    }
+    //所有子视图由一根折线串联起来
+    else if (indexPath.row == 1){
+        cell.textLabel.text=@"FoldLinelayout 折线";
+    }
+    //所有子视图由一根曲线串联起来(任意图形)
+    else if (indexPath.row == 2){
+        cell.textLabel.text=@"Freelayout 任意曲线";
+    }
+    else if (indexPath.row == 3){
+        cell.textLabel.text=@"浮动(未)";
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row == 0 ) {
+        StraightLinelayoutViewController *controller = [[StraightLinelayoutViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    }else if (indexPath.row ==1){
+        FoldLinelayoutViewController *controller = [[FoldLinelayoutViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    }else if (indexPath.row ==2){
+        FreelayoutViewController *controller = [[FreelayoutViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+
 }
 
 #pragma mark - layoutSubviews 子视图布局
@@ -252,17 +329,7 @@
     self.view.backgroundColor = [UIColor grayColor];
     
     //每次重新开始布局时需要复原布局参数
-    self.view.insets = UIEdgeInsetsMake(100, 20, 20, 20);
-    
-    //纯自由布局
-    self.freeLayoutView.insets = UIEdgeInsetsMake(20, 20, 20, 20);
-    self.freeLayoutView.height = 400;
-    self.freeLayoutView.hidden = NO;
-    
-    //线性布局
-    self.lineLayoutView.insets = UIEdgeInsetsMake(20, 20, 20, 20);
-    self.lineLayoutView.height = 400;
-    self.lineLayoutView.hidden = YES;
+//    self.view.insets = UIEdgeInsetsMake(100, 20, 20, 20);  
 }
 
 

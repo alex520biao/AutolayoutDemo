@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1CC468F88C0D7C007471F95B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 543598B8C39DFD7A346D78E2 /* libPods.a */; };
+		D91A53731B459679006B8A75 /* FoldLinelayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91A53721B459679006B8A75 /* FoldLinelayoutViewController.m */; };
+		D91A53761B459D2B006B8A75 /* FreelayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91A53751B459D2B006B8A75 /* FreelayoutViewController.m */; };
 		D91CC78B1B41521700800862 /* UIView+LayoutAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CC78A1B41521700800862 /* UIView+LayoutAdditions.m */; };
 		D91CC78E1B4155F800800862 /* FreeLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CC78D1B4155F800800862 /* FreeLayoutView.m */; };
 		D95CFBB21B42624D002DE528 /* LineLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CFBB11B42624D002DE528 /* LineLayoutView.m */; };
@@ -16,15 +18,14 @@
 		D99D44EB1B3BE26F00BA4CCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D44EA1B3BE26F00BA4CCE /* main.m */; };
 		D99D44EE1B3BE26F00BA4CCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D44ED1B3BE26F00BA4CCE /* AppDelegate.m */; };
 		D99D44F11B3BE26F00BA4CCE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D44F01B3BE26F00BA4CCE /* ViewController.m */; };
-		D99D44F41B3BE26F00BA4CCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D99D44F21B3BE26F00BA4CCE /* Main.storyboard */; };
 		D99D44F61B3BE26F00BA4CCE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99D44F51B3BE26F00BA4CCE /* Images.xcassets */; };
-		D99D44F91B3BE26F00BA4CCE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99D44F71B3BE26F00BA4CCE /* LaunchScreen.xib */; };
 		D99D45051B3BE26F00BA4CCE /* AutolayoutDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D45041B3BE26F00BA4CCE /* AutolayoutDemoTests.m */; };
 		D99D45111B3BE2E800BA4CCE /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D45101B3BE2E800BA4CCE /* UIViewAdditions.m */; };
 		D99D45181B3BE3A400BA4CCE /* UILabel+AutoResize.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D45171B3BE3A400BA4CCE /* UILabel+AutoResize.m */; };
 		D99D451B1B3BFA6900BA4CCE /* UIView+FreeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D451A1B3BFA6900BA4CCE /* UIView+FreeLayout.m */; };
 		D99E66ED1B43849D005B8CCB /* UIView+LineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D99E66EC1B43849D005B8CCB /* UIView+LineLayout.m */; };
 		D9E25FC11B42C366002EB4E4 /* LayoutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E25FC01B42C366002EB4E4 /* LayoutItem.m */; };
+		D9E61E201B458E2200C420ED /* StraightLinelayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E61E1F1B458E2200C420ED /* StraightLinelayoutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,10 @@
 		543598B8C39DFD7A346D78E2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C899416D1032F282456E6149 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D61C7265EE0B9A5D4F08371A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D91A53711B459679006B8A75 /* FoldLinelayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldLinelayoutViewController.h; sourceTree = "<group>"; };
+		D91A53721B459679006B8A75 /* FoldLinelayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoldLinelayoutViewController.m; sourceTree = "<group>"; };
+		D91A53741B459D2B006B8A75 /* FreelayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreelayoutViewController.h; sourceTree = "<group>"; };
+		D91A53751B459D2B006B8A75 /* FreelayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreelayoutViewController.m; sourceTree = "<group>"; };
 		D91CC7891B41521700800862 /* UIView+LayoutAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LayoutAdditions.h"; sourceTree = "<group>"; };
 		D91CC78A1B41521700800862 /* UIView+LayoutAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutAdditions.m"; sourceTree = "<group>"; };
 		D91CC78C1B4155F800800862 /* FreeLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeLayoutView.h; sourceTree = "<group>"; };
@@ -58,9 +63,7 @@
 		D99D44ED1B3BE26F00BA4CCE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D99D44EF1B3BE26F00BA4CCE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D99D44F01B3BE26F00BA4CCE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D99D44F31B3BE26F00BA4CCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D99D44F51B3BE26F00BA4CCE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D99D44F81B3BE26F00BA4CCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D99D44FE1B3BE26F00BA4CCE /* AutolayoutDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutolayoutDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99D45031B3BE26F00BA4CCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D99D45041B3BE26F00BA4CCE /* AutolayoutDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutolayoutDemoTests.m; sourceTree = "<group>"; };
@@ -74,6 +77,8 @@
 		D99E66EC1B43849D005B8CCB /* UIView+LineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LineLayout.m"; sourceTree = "<group>"; };
 		D9E25FBF1B42C366002EB4E4 /* LayoutItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutItem.h; sourceTree = "<group>"; };
 		D9E25FC01B42C366002EB4E4 /* LayoutItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutItem.m; sourceTree = "<group>"; };
+		D9E61E1E1B458E2200C420ED /* StraightLinelayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StraightLinelayoutViewController.h; sourceTree = "<group>"; };
+		D9E61E1F1B458E2200C420ED /* StraightLinelayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StraightLinelayoutViewController.m; sourceTree = "<group>"; };
 		D9E7943A1B43B15D0024B045 /* AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayout.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,13 +146,17 @@
 				D99D44ED1B3BE26F00BA4CCE /* AppDelegate.m */,
 				D99D44EF1B3BE26F00BA4CCE /* ViewController.h */,
 				D99D44F01B3BE26F00BA4CCE /* ViewController.m */,
+				D9E61E1E1B458E2200C420ED /* StraightLinelayoutViewController.h */,
+				D9E61E1F1B458E2200C420ED /* StraightLinelayoutViewController.m */,
+				D91A53711B459679006B8A75 /* FoldLinelayoutViewController.h */,
+				D91A53721B459679006B8A75 /* FoldLinelayoutViewController.m */,
+				D91A53741B459D2B006B8A75 /* FreelayoutViewController.h */,
+				D91A53751B459D2B006B8A75 /* FreelayoutViewController.m */,
 				D91CC78C1B4155F800800862 /* FreeLayoutView.h */,
 				D91CC78D1B4155F800800862 /* FreeLayoutView.m */,
 				D95CFBB01B42624D002DE528 /* LineLayoutView.h */,
 				D95CFBB11B42624D002DE528 /* LineLayoutView.m */,
-				D99D44F21B3BE26F00BA4CCE /* Main.storyboard */,
 				D99D44F51B3BE26F00BA4CCE /* Images.xcassets */,
-				D99D44F71B3BE26F00BA4CCE /* LaunchScreen.xib */,
 				D99D44E81B3BE26F00BA4CCE /* Supporting Files */,
 			);
 			path = AutolayoutDemo;
@@ -293,8 +302,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D99D44F41B3BE26F00BA4CCE /* Main.storyboard in Resources */,
-				D99D44F91B3BE26F00BA4CCE /* LaunchScreen.xib in Resources */,
 				D99D44F61B3BE26F00BA4CCE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,9 +353,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D91A53731B459679006B8A75 /* FoldLinelayoutViewController.m in Sources */,
 				D9E25FC11B42C366002EB4E4 /* LayoutItem.m in Sources */,
 				D99D45111B3BE2E800BA4CCE /* UIViewAdditions.m in Sources */,
 				D91CC78B1B41521700800862 /* UIView+LayoutAdditions.m in Sources */,
+				D91A53761B459D2B006B8A75 /* FreelayoutViewController.m in Sources */,
 				D99D44F11B3BE26F00BA4CCE /* ViewController.m in Sources */,
 				D95CFBB21B42624D002DE528 /* LineLayoutView.m in Sources */,
 				D99D45181B3BE3A400BA4CCE /* UILabel+AutoResize.m in Sources */,
@@ -358,6 +367,7 @@
 				D99D451B1B3BFA6900BA4CCE /* UIView+FreeLayout.m in Sources */,
 				D91CC78E1B4155F800800862 /* FreeLayoutView.m in Sources */,
 				D99E66ED1B43849D005B8CCB /* UIView+LineLayout.m in Sources */,
+				D9E61E201B458E2200C420ED /* StraightLinelayoutViewController.m in Sources */,
 				D99D44EB1B3BE26F00BA4CCE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,25 +389,6 @@
 			targetProxy = D99D44FF1B3BE26F00BA4CCE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D99D44F21B3BE26F00BA4CCE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D99D44F31B3BE26F00BA4CCE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D99D44F71B3BE26F00BA4CCE /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D99D44F81B3BE26F00BA4CCE /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D99D45061B3BE26F00BA4CCE /* Debug */ = {
@@ -485,10 +476,12 @@
 			baseConfigurationReference = C899416D1032F282456E6149 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = AutolayoutDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -497,10 +490,12 @@
 			baseConfigurationReference = D61C7265EE0B9A5D4F08371A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = AutolayoutDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

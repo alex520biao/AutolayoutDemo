@@ -14,6 +14,10 @@
 
 @interface LineLayoutView ()
 
+@property (nonatomic,strong)UILabel *lab1;
+@property (nonatomic,strong)UILabel *lab2;
+@property (nonatomic,strong)UILabel *lab3;
+@property (nonatomic,strong)UILabel *lab4;
 @property (nonatomic,strong)UILabel *lab5;
 @property (nonatomic,strong)UILabel *lab6;
 @property (nonatomic,strong)UILabel *lab7;
@@ -48,6 +52,63 @@
  */
 - (void)setupSubViews{
     self.backgroundColor = [UIColor redColor];
+    {
+        UILabel *lab=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 160, 30)];
+        lab.backgroundColor=[UIColor blueColor];
+        lab.font=[UIFont systemFontOfSize:12];
+        lab.text=@"1 水费电费税费";
+        lab.textColor=[UIColor redColor];
+        lab.textAlignment=NSTextAlignmentCenter;
+        lab.lineBreakMode=NSLineBreakByTruncatingTail;
+        lab.numberOfLines=1;
+        [lab autoResizeWithMinWidth:10 maxWidth:200];
+        [self addSubview:lab];
+        self.lab1 = lab;
+    }
+    
+    {
+        UILabel *lab=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 160, 30)];
+        lab.backgroundColor=[UIColor blueColor];
+        lab.font=[UIFont systemFontOfSize:12];
+        lab.text=@"2水费电";
+        lab.textColor=[UIColor redColor];
+        lab.textAlignment=NSTextAlignmentCenter;
+        lab.lineBreakMode=NSLineBreakByTruncatingTail;
+        lab.numberOfLines=1;
+        [lab autoResizeWithMinWidth:10 maxWidth:200];
+        [self addSubview:lab];
+        self.lab2 = lab;
+    }
+    
+    
+    {
+        UILabel *lab=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 160, 30)];
+        lab.backgroundColor=[UIColor blueColor];
+        lab.font=[UIFont systemFontOfSize:12];
+        lab.text=@"3爽肤水";
+        lab.textColor=[UIColor redColor];
+        lab.textAlignment=NSTextAlignmentCenter;
+        lab.lineBreakMode=NSLineBreakByTruncatingTail;
+        lab.numberOfLines=1;
+        [lab autoResizeWithMinWidth:10 maxWidth:200];
+        [self addSubview:lab];
+        self.lab3 = lab;
+    }
+    
+    {
+        UILabel *lab=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 160, 30)];
+        lab.backgroundColor=[UIColor blueColor];
+        lab.font=[UIFont systemFontOfSize:12];
+        lab.text=@"4 苹果";
+        lab.textColor=[UIColor redColor];
+        lab.textAlignment=NSTextAlignmentCenter;
+        lab.lineBreakMode=NSLineBreakByTruncatingTail;
+        lab.numberOfLines=1;
+        [lab autoResizeWithMinWidth:10 maxWidth:200];
+        [self addSubview:lab];
+        self.lab4 = lab;
+    }
+    
     //从左到右
     {
         UILabel *lab=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
@@ -93,11 +154,15 @@
     }
     
     //添加线性布局约束
-    [self linelayoutWithType:LLTypeRightCneter_Left
+    [self linelayoutWithType:LLTypeLeftBottom_Up
                        block:^(LineLayout *layout) {
-                            layout.linelayoutTuple(self.lab5,10)
-                                  .linelayoutTuple(self.lab6,10)
-                                  .linelayoutTuple(self.lab7,10);
+                            layout.linelayoutTuple(self.lab1,10)
+                                  .linelayoutTuple(self.lab2,11)
+                                  .linelayoutTuple(self.lab3,12)
+                                  .linelayoutTuple(self.lab4,13)
+                                  .linelayoutTuple(self.lab5,14)
+                                  .linelayoutTuple(self.lab6,15)
+                                  .linelayoutTuple(self.lab7,16);
                         }];
 }
 
