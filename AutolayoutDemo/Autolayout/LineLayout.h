@@ -40,7 +40,8 @@ typedef LineLayout *(^AddLineLayoutSpacingBlock)(CGFloat spacing);
 
 
 -(LineLayout*)initWithView:(UIView*)view
-                      type:(LLType)type;
+                      type:(LLType)type
+                     block:(void(^)(LineLayout *layout))block;
 
 #pragma mark - 包装Block
 //LineLayoutItemBlock与linelayoutSubview:spacing等价

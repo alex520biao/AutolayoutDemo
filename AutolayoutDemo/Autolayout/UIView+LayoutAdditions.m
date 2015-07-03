@@ -153,13 +153,22 @@ static const void *kPropertyKeyMargins = &kPropertyKeyMargins;
 
 -(void)layoutSubviewsExt{
 #warning freeLayout应该是一个集合,动画可控制
-    [UIView animateWithDuration:0.2
-                     animations:^{
-                         //freeLayout开始布局(freeLayout及其子类)
-                         if (self.freeLayout) {
-                             [self.freeLayout layout];
-                         }
-                     }];
+//    [UIView animateWithDuration:0.2
+//                     animations:^{
+//                         //freeLayout开始布局(freeLayout及其子类)
+//                         if (self.freeLayout) {
+//                             [self.freeLayout layout];
+//                         }
+//                     }];
+    
+    //freeLayout开始布局(freeLayout及其子类)
+    if(self.layoutDict){
+        for (FreeLayout *layout in self.layoutDict.allValues) {
+            if (layout && [layout isKindOfClass:[FreeLayout class]]) {
+                [layout layout];
+            }
+        }
+    }
     
     //此方法已和layoutSubviews方法互换，并非调用自身，实际上是调用[super layoutSubviews]，所以不会引起死循环
     /* 调用[self layoutSubviews] */

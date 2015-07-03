@@ -126,15 +126,16 @@
         self.lab12 = lab;
     }
     
-    //纯自由相对布局(较复杂)
-    [self freelayoutWithStart:FLVertexLeftTop
-                        block:^(FreeLayout *layout) {
-                            layout.freelayoutTuple(self.lab8,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
-                                  .freelayoutTuple(self.lab9,FLVertexLeftTop,FLVertexLeftBottom,UIOffsetMake(0, 10))
-                                  .freelayoutTuple(self.lab10,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
-                                  .freelayoutTuple(self.lab11,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 10))
-                                  .freelayoutTuple(self.lab12,FLVertexRightTop,FLVertexRightBottom,UIOffsetMake(0, 10));
-                        }];
+    //纯自由相对布局(较复杂)    
+    [self freelayoutWithTag:10086
+                      start:FLVertexLeftTop
+                      block:^(FreeLayout *layout) {
+                          layout.freelayoutTuple(self.lab8,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
+                          .freelayoutTuple(self.lab9,FLVertexLeftTop,FLVertexLeftBottom,UIOffsetMake(0, 10))
+                          .freelayoutTuple(self.lab10,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
+                          .freelayoutTuple(self.lab11,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 10))
+                          .freelayoutTuple(self.lab12,FLVertexRightTop,FLVertexRightBottom,UIOffsetMake(0, 10));
+                      }];
 }
 
 #pragma mark - layoutSubviews 子视图布局

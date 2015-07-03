@@ -162,6 +162,10 @@
 -(void)lineBtnAction:(id)sender{
     self.view.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     
+    //移除已有布局约束
+    [self.view removeFreelayoutWithTag:10086];
+    [self.view removeFreelayoutWithTag:10087];
+
     //添加线性布局约束
     [self.view linelayoutWithType:LLTypeRightBottom_Up
                        block:^(LineLayout *layout) {
@@ -177,31 +181,41 @@
 -(void)foldBtnAction:(id)sender{
     self.view.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     
+    //移除已有布局约束
+    [self.view removeLinelayoutWithType:LLTypeRightBottom_Up];
+    [self.view removeFreelayoutWithTag:10087];
+    
     //纯自由相对布局(较复杂)
-    [self.view freelayoutWithStart:FLVertexLeftTop
-                        block:^(FreeLayout *layout) {
-                            layout.freeLayoutOffset(UIOffsetMake(50, 100))
-                                .freelayoutTuple(self.lab8,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
-                                .freelayoutTuple(self.lab9,FLVertexLeftTop,FLVertexLeftBottom,UIOffsetMake(0, 10))
-                                .freelayoutTuple(self.lab10,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
-                                .freelayoutTuple(self.lab11,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 10))
-                                .freelayoutTuple(self.lab12,FLVertexRightTop,FLVertexRightBottom,UIOffsetMake(0, 10));
-                        }];
+    [self.view freelayoutWithTag:10086
+                           start:FLVertexLeftTop
+                           block:^(FreeLayout *layout) {
+                               layout.freeLayoutOffset(UIOffsetMake(50, 100))
+                               .freelayoutTuple(self.lab8,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
+                               .freelayoutTuple(self.lab9,FLVertexLeftTop,FLVertexLeftBottom,UIOffsetMake(0, 10))
+                               .freelayoutTuple(self.lab10,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
+                               .freelayoutTuple(self.lab11,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 10))
+                               .freelayoutTuple(self.lab12,FLVertexRightTop,FLVertexRightBottom,UIOffsetMake(0, 10));
+                           }];
 }
 
 -(void)freeBtnAction:(id)sender{
     self.view.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     
+    //移除已有布局约束
+    [self.view removeLinelayoutWithType:LLTypeRightBottom_Up];
+    [self.view removeFreelayoutWithTag:10086];
+    
     //纯自由相对布局(较复杂)
-    [self.view freelayoutWithStart:FLVertexLeftTop
-                             block:^(FreeLayout *layout) {
-                                 layout.freeLayoutOffset(UIOffsetMake(20, 100))
-                                 .freelayoutTuple(self.lab8,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 0))
-                                 .freelayoutTuple(self.lab9,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 0))
-                                 .freelayoutTuple(self.lab10,FLVertexLeftTop,FLVertexLeftBottom,UIOffsetMake(0, 0))
-                                 .freelayoutTuple(self.lab11,FLVertexRightTop,FLVertexLeftBottom,UIOffsetMake(0, 0))
-                                 .freelayoutTuple(self.lab12,FLVertexRightTop,FLVertexRightBottom,UIOffsetMake(0, 0));
-                             }];
+    [self.view freelayoutWithTag:10087
+                           start:FLVertexLeftTop
+                           block:^(FreeLayout *layout) {
+                               layout.freeLayoutOffset(UIOffsetMake(20, 100))
+                               .freelayoutTuple(self.lab8,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 0))
+                               .freelayoutTuple(self.lab9,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 0))
+                               .freelayoutTuple(self.lab10,FLVertexLeftTop,FLVertexLeftBottom,UIOffsetMake(0, 0))
+                               .freelayoutTuple(self.lab11,FLVertexRightTop,FLVertexLeftBottom,UIOffsetMake(0, 0))
+                               .freelayoutTuple(self.lab12,FLVertexRightTop,FLVertexRightBottom,UIOffsetMake(0, 0));
+                           }];
 }
 
 

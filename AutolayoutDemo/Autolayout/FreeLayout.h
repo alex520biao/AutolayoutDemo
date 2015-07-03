@@ -38,7 +38,7 @@ typedef FreeLayout *(^AddFreeLayoutOffsetBlock)(UIOffset offset);
 //相对布局对象
 @interface FreeLayout : NSObject
 
-//弱引用
+//layout弱引用view对象,防止出现循环引用
 @property (nonatomic, weak) UIView *view;
 
 //开始布局起点
@@ -46,8 +46,15 @@ typedef FreeLayout *(^AddFreeLayoutOffsetBlock)(UIOffset offset);
 
 @property (nonatomic, strong) NSMutableArray *layoutItemList;
 
+//layoutKey用于唯一标识view上的layout对象
+@property (nonatomic, copy) NSString *layoutKey;
 
--(instancetype)initWithView:(UIView*)view start:(FLVertex)startVertex;
+
+-(instancetype)initWithKey:(NSString*)layoutKey
+                      view:(UIView*)view
+                      start:(FLVertex)startVertex
+                      block:(void(^)(FreeLayout *layout))block;
+
 
 #pragma mark - 自由布局
 @property (nonatomic, assign) CGPoint freeAnchor;

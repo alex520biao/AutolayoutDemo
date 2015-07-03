@@ -18,12 +18,15 @@
  */
 @interface UIView (FreeLayout)
 
-
-@property (nonatomic, strong) FreeLayout *freeLayout;
+@property (nonatomic, strong) NSMutableDictionary *layoutDict;
 
 #pragma mark - lineLayout线性布局
-- (FreeLayout *)freelayoutWithStart:(FLVertex)startVertex
-                              block:(void(^)(FreeLayout *layout))block;
+- (FreeLayout *)freelayoutWithTag:(int)tag
+                            start:(FLVertex)startVertex
+                            block:(void(^)(FreeLayout *layout))block;
+
+
+-(void)removeFreelayoutWithTag:(int)tag;
 
 
 

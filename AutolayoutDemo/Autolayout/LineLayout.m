@@ -13,14 +13,21 @@
 
 @implementation LineLayout
 
--(instancetype)initWithView:(UIView*)view type:(LLType)type{
-    self = [super init];
+-(LineLayout*)initWithView:(UIView*)view
+                      type:(LLType)type
+                     block:(void(^)(LineLayout *layout))block{
+
+    //每种LLType只能添加一个layout对象
+    NSString *key = [NSString stringWithFormat:@"freeLayoutKeyLine%d",type];
+    FLVertex startVertex = [self startVertexWithType:type];
+    self = [super initWithKey:key view:view start:startVertex block:nil];
     if (self) {
         self.type = type;
-        self.view = view;
         
-        //设置startVertex
-        [self setStartVertexWithType:type];
+        //设置lineLayoutItem参数
+        if (block) {
+            block(self);
+        }
     }
     return self;
 }
@@ -205,7 +212,7 @@
 }
 
 #pragma mark - 私有方法
--(void)setStartVertexWithType:(LLType)type{
+-(FLVertex)startVertexWithType:(LLType)type{
     
     FLVertex startVertex = FLVertexLeftTop;
     //(左上顶点,向下)轴,内侧
@@ -256,7 +263,7 @@
     else if (type == LLTypeRightBottom_Left) {
         startVertex = FLVertexRightBottom;
     }
-    self.startVertex = startVertex;
+    return startVertex;
 }
 
 //重写父类方法

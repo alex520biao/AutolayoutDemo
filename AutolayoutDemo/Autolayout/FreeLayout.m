@@ -13,14 +13,27 @@
 
 @implementation FreeLayout
 
-
--(instancetype)initWithView:(UIView*)view start:(FLVertex)startVertex{
-    self = [super init];
-    if (self) {
-        _view = view;
-        _startVertex = startVertex;
+-(instancetype)initWithKey:(NSString*)layoutKey
+                      view:(UIView*)view
+                     start:(FLVertex)startVertex
+                     block:(void(^)(FreeLayout *layout))block{
+    //layoutKey不能为空
+    if (layoutKey && layoutKey.length>0) {
+        self = [super init];
+        if (self) {
+            _layoutKey = layoutKey;
+            _view = view;
+            _startVertex = startVertex;
+            
+            //使用block继续初始化layoutItem
+            if (block) {
+                block(self);
+            }
+        }
+        return self;
+    }else{
+        return nil;
     }
-    return self;
 }
 
 -(NSMutableArray*)layoutItemList{

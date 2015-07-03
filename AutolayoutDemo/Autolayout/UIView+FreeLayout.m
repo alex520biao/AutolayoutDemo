@@ -13,30 +13,38 @@
 #import "FreeLayout.h"
 #import "LineLayout.h"
 
+
+#define kFreeLayoutKey @"kFreeLayoutKey"
+
 @implementation UIView (FreeLayout)
 
-#pragma mark - 实现freeLayout
-static const void *kPropertyKeyFreeLayout = &kPropertyKeyFreeLayout;
-@dynamic freeLayout;
--(void)setFreeLayout:(FreeLayout*)freeLayout{
-    objc_setAssociatedObject(self, kPropertyKeyFreeLayout, freeLayout, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+#pragma mark - 实现layoutDict
+static const void *kPropertyKeyLayoutDict = &kPropertyKeyLayoutDict;
+@dynamic layoutDict;
+-(void)setLayoutDict:(NSMutableDictionary*)layoutDict{
+    objc_setAssociatedObject(self, kPropertyKeyLayoutDict, layoutDict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (FreeLayout*)freeLayout{
-    FreeLayout *value = objc_getAssociatedObject(self, kPropertyKeyFreeLayout);
+- (NSMutableDictionary*)layoutDict{
+    NSMutableDictionary *value = objc_getAssociatedObject(self, kPropertyKeyLayoutDict);
+    if (!value) {
+        value = [NSMutableDictionary dictionary];
+        objc_setAssociatedObject(self, kPropertyKeyLayoutDict, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
     return value;
 }
 
-
-- (FreeLayout *)freelayoutWithStart:(FLVertex)startVertex
-                              block:(void(^)(FreeLayout *layout))block{
+- (FreeLayout *)freelayoutWithTag:(int)tag
+                            start:(FLVertex)startVertex
+                            block:(void(^)(FreeLayout *layout))block{
     //初始化LineLayout
-    FreeLayout *freeLayout = [[FreeLayout alloc] initWithView:self start:startVertex];
-    if (block) {
-        block(freeLayout);
-    }
-    
-    self.freeLayout = freeLayout;
+    NSString *key = [NSString stringWithFormat:@"%@%d",kFreeLayoutKey,tag];
+    FreeLayout *freeLayout = [[FreeLayout alloc] initWithKey:key
+                                                        view:self
+                                                       start:startVertex
+                                                       block:block];
+    //每种LLType只能添加一个layout对象
+    [self.layoutDict setObject:freeLayout forKey:key];
     
     //UIView添加新layout对象需要标记needsLayout
     [self setNeedsLayout];
@@ -44,6 +52,14 @@ static const void *kPropertyKeyFreeLayout = &kPropertyKeyFreeLayout;
     [self layoutIfNeeded];
 
     return freeLayout;
+}
+
+-(void)removeFreelayoutWithTag:(int)tag{
+    NSString *key = [NSString stringWithFormat:@"%@%d",kFreeLayoutKey,tag];
+    
+    if ([self.layoutDict objectForKey:key]) {
+        [self.layoutDict removeObjectForKey:key];
+    }
 }
 
 @end

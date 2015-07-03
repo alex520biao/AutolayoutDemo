@@ -165,18 +165,6 @@
     lineBtn.centerY=CGRectGetMidY(self.bounds);
     [lineBtn addTarget:self action:@selector(lineBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:lineBtn];
-    
-    //添加线性布局约束
-    [self linelayoutWithType:LLTypeLeftTop_Down
-                       block:^(LineLayout *layout) {
-                            layout.linelayoutTuple(self.lab1,10)
-                                  .linelayoutTuple(self.lab2,11)
-                                  .linelayoutTuple(self.lab3,12)
-                                  .linelayoutTuple(self.lab4,13)
-                                  .linelayoutTuple(self.lab5,14)
-                                  .linelayoutTuple(self.lab6,15)
-                                  .linelayoutTuple(self.lab7,16);
-                        }];
 }
 
 #pragma mark - layoutSubviews 子视图布局
@@ -192,23 +180,85 @@
 #pragma mark - Action && UIGestureRecognizer 控件&&手势响应
 #pragma mark - Action && UIGestureRecognizer 控件&&手势响应
 -(void)lineBtnAction:(UIButton*)sender{
-    self.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     
-    sender.tag = sender.tag +1;
-    LLType type = (LLType)sender.tag%12;
+//    sender.tag = sender.tag +1;
+//    LLType type = (LLType)sender.tag%12;
+//    
+//    //添加线性布局约束
+//    [self linelayoutWithType:type
+//                       block:^(LineLayout *layout) {
+//                           layout.linelayoutTuple(self.lab1,10)
+//                           .linelayoutTuple(self.lab2,11)
+//                           .linelayoutTuple(self.lab3,12)
+//                           .linelayoutTuple(self.lab4,13)
+//                           .linelayoutTuple(self.lab5,14)
+//                           .linelayoutTuple(self.lab6,15)
+//                           .linelayoutTuple(self.lab7,16);
+//                       }];
     
-    //添加线性布局约束
-    [self linelayoutWithType:type
-                       block:^(LineLayout *layout) {
-                           layout.linelayoutTuple(self.lab1,10)
-                           .linelayoutTuple(self.lab2,11)
-                           .linelayoutTuple(self.lab3,12)
-                           .linelayoutTuple(self.lab4,13)
-                           .linelayoutTuple(self.lab5,14)
-                           .linelayoutTuple(self.lab6,15)
-                           .linelayoutTuple(self.lab7,16);
-                       }];
     
+//    if (self.height == 400) {
+//        self.insets = UIEdgeInsetsMake(20, 20, 20, 20);
+//        self.height = 450;
+//    }else{
+//        self.insets = UIEdgeInsetsMake(30, 30, 30, 30);
+//        self.height = 400;
+//    }
+//    
+//    self.insets = UIEdgeInsetsMake(30, 30, 30, 30);
+//    self.height = 350;
+//    
+//    [self setNeedsLayout];
+//    [self layoutIfNeeded];
+    
+    
+    if(sender.tag==1){
+        sender.tag = 0;
+        
+        //移除已有的布局约束
+        [self removeLinelayoutWithType:LLTypeLeftBottom_Up];
+        [self removeLinelayoutWithType:LLTypeRightTop_Down];
+        
+        //添加线性布局约束
+        [self linelayoutWithType:LLTypeLeftTop_Down
+                           block:^(LineLayout *layout) {
+                               layout.linelayoutTuple(self.lab1,10)
+                               .linelayoutTuple(self.lab2,11)
+                               .linelayoutTuple(self.lab3,12)
+                               .linelayoutTuple(self.lab4,13);
+                           }];
+        
+        //添加线性布局约束
+        [self linelayoutWithType:LLTypeRightBottom_Up
+                           block:^(LineLayout *layout) {
+                               layout.linelayoutTuple(self.lab5,14)
+                               .linelayoutTuple(self.lab6,15)
+                               .linelayoutTuple(self.lab7,16);
+                           }];
+    }else{
+        sender.tag = 1;
+
+        //移除已有的布局约束
+        [self removeLinelayoutWithType:LLTypeLeftTop_Down];
+        [self removeLinelayoutWithType:LLTypeRightBottom_Up];
+
+        //添加线性布局约束
+        [self linelayoutWithType:LLTypeLeftBottom_Up
+                           block:^(LineLayout *layout) {
+                               layout.linelayoutTuple(self.lab1,10)
+                               .linelayoutTuple(self.lab2,11)
+                               .linelayoutTuple(self.lab3,12)
+                               .linelayoutTuple(self.lab4,13);
+                           }];
+        
+        //添加线性布局约束
+        [self linelayoutWithType:LLTypeRightTop_Down
+                           block:^(LineLayout *layout) {
+                               layout.linelayoutTuple(self.lab5,14)
+                               .linelayoutTuple(self.lab6,15)
+                               .linelayoutTuple(self.lab7,16);
+                           }];
+    }
 
 }
 
