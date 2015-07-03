@@ -264,7 +264,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -291,6 +291,9 @@
     }
     else if (indexPath.row == 3){
         cell.textLabel.text=@"浮动";
+    }
+    else if (indexPath.row == 4){
+        cell.textLabel.text=@"嵌套(layout对象内部嵌套子layout对象)";
     }
     return cell;
 }

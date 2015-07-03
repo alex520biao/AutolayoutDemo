@@ -10,7 +10,7 @@
 
 //线性布局类型(共12种,所有轴向共108种)
 typedef enum {
-    LLTypeLeftTop_Down,            //(左上顶点,向下)轴,内侧
+    LLTypeLeftTop_Down =0,         //(左上顶点,向下)轴,内侧
     LLTypeLeftTop_Right,           //(左上顶点,向右)轴,内侧
     LLTypeLeftCenter_Right,        //(左中顶点,向右)轴,中间
     LLTypeLeftBottom_Up,           //(左下顶点,向上)轴,内侧

@@ -21,6 +21,10 @@
     }
     
     self.freeLayout = lineLayout;
+    
+    //UIView添加新layout对象需要标记needsLayout
+    [self setNeedsLayout];
+
     return lineLayout;
 }
 

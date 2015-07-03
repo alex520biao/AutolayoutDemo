@@ -37,6 +37,12 @@ static const void *kPropertyKeyFreeLayout = &kPropertyKeyFreeLayout;
     }
     
     self.freeLayout = freeLayout;
+    
+    //UIView添加新layout对象需要标记needsLayout
+    [self setNeedsLayout];
+    //立即检查重新布局
+    [self layoutIfNeeded];
+
     return freeLayout;
 }
 

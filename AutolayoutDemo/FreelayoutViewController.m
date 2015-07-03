@@ -113,7 +113,9 @@
     UIButton *lineBtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     [lineBtn setTitle:@"线性" forState:UIControlStateNormal];
     [lineBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    lineBtn.frame=CGRectMake(20,75,100,44);
+    lineBtn.backgroundColor = [UIColor blueColor];
+    lineBtn.frame=CGRectMake(0,75,60,44);
+    lineBtn.left=20;
     [lineBtn addTarget:self action:@selector(lineBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:lineBtn];
     
@@ -121,14 +123,18 @@
     UIButton *foldBtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     [foldBtn setTitle:@"折线" forState:UIControlStateNormal];
     [foldBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    foldBtn.frame=CGRectMake(120,75,100,44);
+    foldBtn.backgroundColor = [UIColor blueColor];
+    foldBtn.frame=CGRectMake(0,75,60,44);
+    foldBtn.left=lineBtn.right+20;
     [foldBtn addTarget:self action:@selector(foldBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:foldBtn];
     
     UIButton *freeBtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     [freeBtn setTitle:@"任意曲线" forState:UIControlStateNormal];
     [freeBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    freeBtn.frame=CGRectMake(230,75,100,44);
+    freeBtn.backgroundColor = [UIColor blueColor];
+    freeBtn.frame=CGRectMake(0,75,60,44);
+    freeBtn.left=foldBtn.right+20;
     [freeBtn addTarget:self action:@selector(freeBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:freeBtn];
     
@@ -166,9 +172,6 @@
                                 .linelayoutTuple(self.lab11,10)
                                 .linelayoutTuple(self.lab12,10);
                        }];
-    
-    [self.view setNeedsLayout];
-    [self.view layoutIfNeeded];
 }
 
 -(void)foldBtnAction:(id)sender{
@@ -184,9 +187,6 @@
                                 .freelayoutTuple(self.lab11,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 10))
                                 .freelayoutTuple(self.lab12,FLVertexRightTop,FLVertexRightBottom,UIOffsetMake(0, 10));
                         }];
-    
-    [self.view setNeedsLayout];
-    [self.view layoutIfNeeded];
 }
 
 -(void)freeBtnAction:(id)sender{
@@ -202,9 +202,6 @@
                                  .freelayoutTuple(self.lab11,FLVertexRightTop,FLVertexLeftBottom,UIOffsetMake(0, 0))
                                  .freelayoutTuple(self.lab12,FLVertexRightTop,FLVertexRightBottom,UIOffsetMake(0, 0));
                              }];
-    
-    [self.view setNeedsLayout];
-    [self.view layoutIfNeeded];
 }
 
 

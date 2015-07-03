@@ -11,6 +11,7 @@
 #import "UIViewAdditions.h"
 #import "UIView+FreeLayout.h"
 #import "UIView+LineLayout.h"
+#import "AutoLayout.h"
 
 @interface LineLayoutView ()
 
@@ -153,8 +154,20 @@
         self.lab7 = lab;
     }
     
+    self.clipsToBounds = YES;
+    
+    UIButton *lineBtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [lineBtn setTitle:@"切换" forState:UIControlStateNormal];
+    [lineBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    lineBtn.backgroundColor = [UIColor yellowColor];
+    lineBtn.frame=CGRectMake(0,75,30,30);
+    lineBtn.centerX=CGRectGetMidX(self.bounds);
+    lineBtn.centerY=CGRectGetMidY(self.bounds);
+    [lineBtn addTarget:self action:@selector(lineBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:lineBtn];
+    
     //添加线性布局约束
-    [self linelayoutWithType:LLTypeLeftBottom_Up
+    [self linelayoutWithType:LLTypeLeftTop_Down
                        block:^(LineLayout *layout) {
                             layout.linelayoutTuple(self.lab1,10)
                                   .linelayoutTuple(self.lab2,11)
@@ -177,5 +190,26 @@
 }
 
 #pragma mark - Action && UIGestureRecognizer 控件&&手势响应
+#pragma mark - Action && UIGestureRecognizer 控件&&手势响应
+-(void)lineBtnAction:(UIButton*)sender{
+    self.insets = UIEdgeInsetsMake(20, 20, 20, 20);
+    
+    sender.tag = sender.tag +1;
+    LLType type = (LLType)sender.tag%12;
+    
+    //添加线性布局约束
+    [self linelayoutWithType:type
+                       block:^(LineLayout *layout) {
+                           layout.linelayoutTuple(self.lab1,10)
+                           .linelayoutTuple(self.lab2,11)
+                           .linelayoutTuple(self.lab3,12)
+                           .linelayoutTuple(self.lab4,13)
+                           .linelayoutTuple(self.lab5,14)
+                           .linelayoutTuple(self.lab6,15)
+                           .linelayoutTuple(self.lab7,16);
+                       }];
+    
+
+}
 
 @end

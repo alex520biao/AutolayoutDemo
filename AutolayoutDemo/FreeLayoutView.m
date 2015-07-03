@@ -11,6 +11,8 @@
 #import "UIViewAdditions.h"
 #import "UIView+FreeLayout.h"
 
+#import "AutoLayout.h"
+
 @interface FreeLayoutView ()
 
 @property (nonatomic,strong)UILabel *lab1;

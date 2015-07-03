@@ -152,11 +152,14 @@ static const void *kPropertyKeyMargins = &kPropertyKeyMargins;
 //重新设置所有子控件Frame，当子控件大小发生变化时，循环触发此机制，达到递归调用布局算法的目的.
 
 -(void)layoutSubviewsExt{
-#warning freeLayout应该是一个集合
-    //freeLayout开始布局(freeLayout及其子类)
-    if (self.freeLayout) {
-        [self.freeLayout layout];
-    }
+#warning freeLayout应该是一个集合,动画可控制
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         //freeLayout开始布局(freeLayout及其子类)
+                         if (self.freeLayout) {
+                             [self.freeLayout layout];
+                         }
+                     }];
     
     //此方法已和layoutSubviews方法互换，并非调用自身，实际上是调用[super layoutSubviews]，所以不会引起死循环
     /* 调用[self layoutSubviews] */
