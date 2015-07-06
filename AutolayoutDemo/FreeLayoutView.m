@@ -126,7 +126,10 @@
         self.lab12 = lab;
     }
     
-    //纯自由相对布局(较复杂)    
+    //view的内边距
+    self.insets = UIEdgeInsetsMake(20, 20, 20, 20);
+    
+    //纯自由相对布局(较复杂)
     [self freelayoutWithTag:10086
                       start:FLVertexLeftTop
                       block:^(FreeLayout *layout) {

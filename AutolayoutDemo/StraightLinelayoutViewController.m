@@ -48,7 +48,6 @@
     self.view.backgroundColor = [UIColor grayColor];
         
     //线性布局
-    self.lineLayoutView.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     self.lineLayoutView.height = 400;
 }
 

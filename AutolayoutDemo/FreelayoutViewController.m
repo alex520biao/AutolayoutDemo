@@ -163,8 +163,9 @@
     self.view.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     
     //移除已有布局约束
-    [self.view removeFreelayoutWithTag:10086];
-    [self.view removeFreelayoutWithTag:10087];
+//    [self.view removeFreelayoutWithTag:10086];
+//    [self.view removeFreelayoutWithTag:10087];
+    [self.view removeAllLinelayout];
 
     //添加线性布局约束
     [self.view linelayoutWithType:LLTypeRightBottom_Up
@@ -182,8 +183,9 @@
     self.view.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     
     //移除已有布局约束
-    [self.view removeLinelayoutWithType:LLTypeRightBottom_Up];
-    [self.view removeFreelayoutWithTag:10087];
+//    [self.view removeLinelayoutWithType:LLTypeRightBottom_Up];
+//    [self.view removeFreelayoutWithTag:10087];
+    [self.view removeAllLinelayout];
     
     //纯自由相对布局(较复杂)
     [self.view freelayoutWithTag:10086
@@ -202,8 +204,9 @@
     self.view.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     
     //移除已有布局约束
-    [self.view removeLinelayoutWithType:LLTypeRightBottom_Up];
-    [self.view removeFreelayoutWithTag:10086];
+//    [self.view removeLinelayoutWithType:LLTypeRightBottom_Up];
+//    [self.view removeFreelayoutWithTag:10086];
+    [self.view removeAllLinelayout];
     
     //纯自由相对布局(较复杂)
     [self.view freelayoutWithTag:10087

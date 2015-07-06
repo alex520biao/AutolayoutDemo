@@ -179,7 +179,10 @@
 
 #pragma mark - Action && UIGestureRecognizer 控件&&手势响应
 #pragma mark - Action && UIGestureRecognizer 控件&&手势响应
--(void)lineBtnAction:(UIButton*)sender{    
+-(void)lineBtnAction:(UIButton*)sender{
+    
+    //view的内边距
+    self.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     
     if(sender.tag==1){
         sender.tag = 0;
