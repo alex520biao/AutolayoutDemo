@@ -16,9 +16,15 @@ typedef enum {
     LayoutItemTypeSubview   = 1   //Subview
 } LayoutItemType;
 
-//LayoutItem可以分为两类: subview和spacing, subview的本身尺寸加上margin, spacing就是纯粹的占位空间
+/*!
+ *  @brief  LayoutItem为FreeLayout的布局子项
+ *  @note   LayoutItem可以分为两类: subview和offset, subview的本身尺寸加上margin, offset就是纯粹的占位空间
+ */
 @interface LayoutItem : NSObject
 
+/*!
+ *  @brief  LayoutItem类型
+ */
 @property (nonatomic, assign) LayoutItemType layoutItemType;
 
 #pragma mark - subview

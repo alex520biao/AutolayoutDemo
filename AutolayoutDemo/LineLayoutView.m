@@ -179,45 +179,13 @@
 
 #pragma mark - Action && UIGestureRecognizer 控件&&手势响应
 #pragma mark - Action && UIGestureRecognizer 控件&&手势响应
--(void)lineBtnAction:(UIButton*)sender{
-    
-//    sender.tag = sender.tag +1;
-//    LLType type = (LLType)sender.tag%12;
-//    
-//    //添加线性布局约束
-//    [self linelayoutWithType:type
-//                       block:^(LineLayout *layout) {
-//                           layout.linelayoutTuple(self.lab1,10)
-//                           .linelayoutTuple(self.lab2,11)
-//                           .linelayoutTuple(self.lab3,12)
-//                           .linelayoutTuple(self.lab4,13)
-//                           .linelayoutTuple(self.lab5,14)
-//                           .linelayoutTuple(self.lab6,15)
-//                           .linelayoutTuple(self.lab7,16);
-//                       }];
-    
-    
-//    if (self.height == 400) {
-//        self.insets = UIEdgeInsetsMake(20, 20, 20, 20);
-//        self.height = 450;
-//    }else{
-//        self.insets = UIEdgeInsetsMake(30, 30, 30, 30);
-//        self.height = 400;
-//    }
-//    
-//    self.insets = UIEdgeInsetsMake(30, 30, 30, 30);
-//    self.height = 350;
-//    
-//    [self setNeedsLayout];
-//    [self layoutIfNeeded];
-    
+-(void)lineBtnAction:(UIButton*)sender{    
     
     if(sender.tag==1){
         sender.tag = 0;
         
-        //移除已有的布局约束
-        [self removeLinelayoutWithType:LLTypeLeftBottom_Up];
-        [self removeLinelayoutWithType:LLTypeRightTop_Down];
+        //移除已有的线性布局布局约束
+        [self removeAllLinelayout];
         
         //添加线性布局约束
         [self linelayoutWithType:LLTypeLeftTop_Down
@@ -238,9 +206,8 @@
     }else{
         sender.tag = 1;
 
-        //移除已有的布局约束
-        [self removeLinelayoutWithType:LLTypeLeftTop_Down];
-        [self removeLinelayoutWithType:LLTypeRightBottom_Up];
+        //移除已有的线性布局布局约束
+        [self removeAllLinelayout];
 
         //添加线性布局约束(根据不同的设备设置不同的间距)
         [self linelayoutWithType:LLTypeLeftBottom_Up

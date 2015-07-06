@@ -62,4 +62,8 @@ static const void *kPropertyKeyLayoutDict = &kPropertyKeyLayoutDict;
     }
 }
 
+-(void)removeAllFreelayout{
+    [self.layoutDict removeAllObjects];
+}
+
 @end

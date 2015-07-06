@@ -13,6 +13,16 @@
 
 @implementation FreeLayout
 
+/*!
+ *  @brief  创建FreeLayout对象
+ *
+ *  @param layoutKey   layout对象唯一标识符
+ *  @param view        layout对应的父视图
+ *  @param startVertex layout布局起始顶点
+ *  @param block       LayoutItem初始化block
+ *
+ *  @return
+ */
 -(instancetype)initWithKey:(NSString*)layoutKey
                       view:(UIView*)view
                      start:(FLVertex)startVertex
@@ -288,7 +298,7 @@
 
 #pragma mark - layout
 /*!
- *  @brief  使用view、subview进行布局 子类需要重写此方法
+ *  @brief  使用view、subview进行布局 子类需要重写此方法。不要直接调用。
  *
  */
 -(void)layout{

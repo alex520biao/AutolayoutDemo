@@ -18,15 +18,34 @@
  */
 @interface UIView (FreeLayout)
 
+/*!
+ *  @brief  view的所有layout布局对象
+ */
 @property (nonatomic, strong) NSMutableDictionary *layoutDict;
 
 #pragma mark - lineLayout线性布局
+/*!
+ *  @brief  当前view添加一个freelayout对象
+ *
+ *  @param tag         layout对象tag
+ *  @param startVertex 布局起始顶点
+ *  @param block       layoutItem设置block
+ *
+ *  @return
+ */
 - (FreeLayout *)freelayoutWithTag:(int)tag
                             start:(FLVertex)startVertex
                             block:(void(^)(FreeLayout *layout))block;
 
 
+/*!
+ *  @brief  移除tag对应freeLayout对象
+ *
+ *  @param tag
+ */
 -(void)removeFreelayoutWithTag:(int)tag;
+
+-(void)removeAllFreelayout;
 
 
 

@@ -20,7 +20,7 @@
 #pragma mark - lineLayout线性布局
 
 /*!
- *  @brief  为LLType类型添加布局约束,每种LLType类型的layout对象可以同时存在
+ *  @brief  为LLType类型添加布局约束(每种LLType类型的layout对象可以同时存在)
  #  @note   此方法会触发layoutsubviews调用,因此layoutsubviews中不能调用此方法否则会死循环
  *
  */
@@ -31,6 +31,12 @@
  *
  */
 -(void)removeLinelayoutWithType:(LLType)type;
+
+/*!
+ *  @brief  移除所有线性布局约束
+ */
+-(void)removeAllLinelayout;
+
 
 
 

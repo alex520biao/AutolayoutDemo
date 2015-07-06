@@ -212,6 +212,13 @@
 }
 
 #pragma mark - 私有方法
+/*!
+ *  @brief  根据LLType线性布局类型转换得到布局起始顶点
+ *
+ *  @param type 线性布局类型
+ *
+ *  @return
+ */
 -(FLVertex)startVertexWithType:(LLType)type{
     
     FLVertex startVertex = FLVertexLeftTop;
@@ -266,7 +273,9 @@
     return startVertex;
 }
 
-//重写父类方法
+/*!
+ *  @brief  重写父类方法
+ */
 -(void)layout{
     [super layout];    
 }

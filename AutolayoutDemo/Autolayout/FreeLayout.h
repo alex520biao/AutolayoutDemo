@@ -25,31 +25,57 @@ typedef enum {
 @class FreeLayout;
 @class LayoutItem;
 
-//使用Block实现链式语法
+/*!
+ *  @brief  添加一个subview和offset类型的LayoutItem.使用Block实现链式语法
+ */
 typedef FreeLayout *(^AddFreeLayoutTupleBlock)(UIView *subview,FLVertex vertexBrfore,FLVertex vertexAfter,UIOffset offset);
 
-//只添加一个subview类型的的layoutItem
+/*!
+ *  @brief  添加一个LayoutItemTypeSubview类型layoutItem
+ */
 typedef FreeLayout *(^AddFreeLayoutSubviewBlock)(UIView *subview,FLVertex vertexBrfore,FLVertex vertexAfter);
 
-//只添加一个offset的layoutItem
+/*!
+ *  @brief  添加一个LayoutItemTypeOffset类型的layoutItem
+ */
 typedef FreeLayout *(^AddFreeLayoutOffsetBlock)(UIOffset offset);
 
 
-//相对布局对象
+/*!
+ *  @brief  相对布局对象
+ */
 @interface FreeLayout : NSObject
 
-//layout弱引用view对象,防止出现循环引用
+/*!
+ *  @brief  layout弱引用view对象,防止出现循环引用
+ */
 @property (nonatomic, weak) UIView *view;
 
-//开始布局起点
+/*!
+ *  @brief  开始布局起点
+ */
 @property (nonatomic, assign) FLVertex startVertex;
 
+/*!
+ *  @brief  layout对象中所有layoutItem
+ */
 @property (nonatomic, strong) NSMutableArray *layoutItemList;
 
-//layoutKey用于唯一标识view上的layout对象
+/*!
+ *  @brief  layoutKey用于唯一标识view上的layout对象
+ */
 @property (nonatomic, copy) NSString *layoutKey;
 
-
+/*!
+ *  @brief  创建FreeLayout对象
+ *
+ *  @param layoutKey   layout对象唯一标识符
+ *  @param view        layout对应的父视图
+ *  @param startVertex layout布局起始顶点
+ *  @param block       LayoutItem初始化block
+ *
+ *  @return
+ */
 -(instancetype)initWithKey:(NSString*)layoutKey
                       view:(UIView*)view
                       start:(FLVertex)startVertex
@@ -75,15 +101,29 @@ typedef FreeLayout *(^AddFreeLayoutOffsetBlock)(UIOffset offset);
                          offset:(UIOffset)offset;
 
 #pragma mark - 对外封装方法
+/*!
+ *  @brief  添加一个LayoutItem对象
+ *
+ *  @param layoutItem
+ *
+ *  @return
+ */
 -(FreeLayout*)freelayoutItem:(LayoutItem *)layoutItem;
 
-//FreeLayoutItemBlock与freelayoutSubview:vertexBrfore:vertexAfter:offset等价
+/*!
+ *  @brief  添加一个subview和offset类型的LayoutItem
+ *  @note   FreeLayoutItemBlock与freelayoutSubview:vertexBrfore:vertexAfter:offset等价
+ */
 @property(nonatomic,readonly) AddFreeLayoutTupleBlock freelayoutTuple;
 
-//只添加一个subview类型的的layoutItem
+/*!
+ *  @brief  添加一个LayoutItemTypeSubview类型layoutItem
+ */
 @property(nonatomic,readonly) AddFreeLayoutSubviewBlock freeLayoutSubview;
 
-//只添加一个offset的layoutItem
+/*!
+ *  @brief  添加一个LayoutItemTypeOffset类型的layoutItem
+ */
 @property(nonatomic,readonly) AddFreeLayoutOffsetBlock freeLayoutOffset;
 
 #pragma mark - 私有方法

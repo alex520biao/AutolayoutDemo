@@ -46,7 +46,6 @@ static const void *kPropertyKeyMargins = &kPropertyKeyMargins;
 }
 
 #pragma mark - UIView的9个顶点
-#warning 此处的Vertex表示的是subview的各个顶点针对frame的值
 //左上顶点
 -(void)setVertexLeftTop:(CGPoint)vertexLeftTop{
     self.left   = vertexLeftTop.x;
@@ -164,8 +163,8 @@ static const void *kPropertyKeyMargins = &kPropertyKeyMargins;
     //freeLayout开始布局(freeLayout及其子类)
     if(self.layoutDict){
         for (FreeLayout *layout in self.layoutDict.allValues) {
-            if (layout && [layout isKindOfClass:[FreeLayout class]]) {
-                [layout layout];
+            if (layout && [layout isKindOfClass:[FreeLayout class]] && [layout respondsToSelector:@selector(layout)]) {
+                [layout performSelector:@selector(layout)];
             }
         }
     }

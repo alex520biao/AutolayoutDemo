@@ -25,17 +25,30 @@ typedef enum {
 } LLType;
 
 @class LineLayout;
-//使用Block实现链式语法
+
+/*!
+ *  @brief  添加一个subview和spacing(linelayoutSubview:spacing方法等价)
+ */
 typedef LineLayout *(^AddLineLayoutTupleBlock)(UIView *subview,CGFloat spacing);
 
+/*!
+ *  @brief  添加一个subview
+ */
 typedef LineLayout *(^AddLineLayoutSubviewBlock)(UIView *subview);
 
-//spacing表示子视图之间的间距，必须为非负数
+/*!
+ *  @brief  添加一个spacing(必须为非负数)
+ */
 typedef LineLayout *(^AddLineLayoutSpacingBlock)(CGFloat spacing);
 
-//线性布局对象
+/*!
+ *  @brief  LineLayout是FreeLayout子类,在相对布局基础上实现线性布局
+ */
 @interface LineLayout : FreeLayout
 
+/*!
+ *  @brief  线性布局类型(12种)
+ */
 @property (nonatomic, assign) LLType type;
 
 
@@ -44,17 +57,20 @@ typedef LineLayout *(^AddLineLayoutSpacingBlock)(CGFloat spacing);
                      block:(void(^)(LineLayout *layout))block;
 
 #pragma mark - 包装Block
-//LineLayoutItemBlock与linelayoutSubview:spacing等价
+/*!
+ *  @brief  添加一个subview和spacing(linelayoutSubview:spacing方法等价)
+ */
 @property(nonatomic,readonly) AddLineLayoutTupleBlock linelayoutTuple;
 
+/*!
+ *  @brief  添加一个subview
+ */
 @property(nonatomic,readonly) AddLineLayoutSubviewBlock lineLayoutSubview;
 
-//spacing表示子视图之间的间距，必须为非负数
+/*!
+ *  @brief  添加一个spacing(必须为非负数)
+ */
 @property(nonatomic,readonly) AddLineLayoutSpacingBlock lineLayoutSpacing;
-
-
-#pragma mark - 私有方法
--(void)layout;
 
 
 

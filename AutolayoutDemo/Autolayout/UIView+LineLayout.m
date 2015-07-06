@@ -34,6 +34,28 @@
     if ([self.layoutDict objectForKey:key]) {
         [self.layoutDict removeObjectForKey:key];
     }
+    
+    //UIView添加新layout对象需要标记needsLayout
+    [self setNeedsLayout];
+    //立即检查重新布局
+    [self layoutIfNeeded];
+}
+
+/*!
+ *  @brief  移除所有线性布局约束
+ */
+-(void)removeAllLinelayout{
+    NSArray *keys = [NSArray arrayWithArray:self.layoutDict.allKeys];
+    for (NSString *key in keys) {
+        if ([self.layoutDict objectForKey:key]) {
+            [self.layoutDict removeObjectForKey:key];
+        }
+    }
+    
+    //UIView添加新layout对象需要标记needsLayout
+    [self setNeedsLayout];
+    //立即检查重新布局
+    [self layoutIfNeeded];
 }
 
 

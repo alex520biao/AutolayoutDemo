@@ -11,29 +11,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-//线性布局方向
-typedef enum {
-    LLVerticalAlignmentNone,      //不对齐
-    LLVerticalAlignmentLeft,      //左对齐
-    LLVerticalAlignmentCenter,    //居中对齐
-    LLVerticalAlignmentRight,     //右对齐
-} LLVerticalAlignment;
-
-//水平线性布局对齐方式(从左向右,从右向左)
-typedef enum {
-    LLHorizontalAlignmentNone,        //不对齐
-    LLHorizontalAlignmentTop,         //上对齐
-    LLHorizontalAlignmentCenter,      //居中对齐
-    LLHorizontalAlignmentBottom       //下对齐
-} LLHorizontalAlignment;
-
-
 @interface UIView(LayoutAdditions)
 
-#pragma mark - UIView的padding/insets(内边距)
+/*!
+ *  @brief  UIView的padding/insets(内边距)
+ */
 @property (nonatomic, assign) UIEdgeInsets insets;
 
-#pragma mark - UIView的margin(外边距)
+/*!
+ *  @brief  UIView的margin(外边距)
+ */
 @property (nonatomic, assign) UIEdgeInsets margins;
 
 
