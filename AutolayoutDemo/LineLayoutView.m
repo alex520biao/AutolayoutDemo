@@ -242,10 +242,10 @@
         [self removeLinelayoutWithType:LLTypeLeftTop_Down];
         [self removeLinelayoutWithType:LLTypeRightBottom_Up];
 
-        //添加线性布局约束
+        //添加线性布局约束(根据不同的设备设置不同的间距)
         [self linelayoutWithType:LLTypeLeftBottom_Up
                            block:^(LineLayout *layout) {
-                               layout.linelayoutTuple(self.lab1,10)
+                               layout.linelayoutTuple(self.lab1,SSLNG(10.0f, 15.0f, 15.0f, 85.0f))
                                .linelayoutTuple(self.lab2,11)
                                .linelayoutTuple(self.lab3,12)
                                .linelayoutTuple(self.lab4,13);

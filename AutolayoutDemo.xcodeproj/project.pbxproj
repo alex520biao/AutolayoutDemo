@@ -15,6 +15,7 @@
 		D95CFBB21B42624D002DE528 /* LineLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CFBB11B42624D002DE528 /* LineLayoutView.m */; };
 		D95CFBBD1B42B3FF002DE528 /* FreeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CFBBA1B42B3FF002DE528 /* FreeLayout.m */; };
 		D95CFBBE1B42B3FF002DE528 /* LineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CFBBC1B42B3FF002DE528 /* LineLayout.m */; };
+		D97132901B4A68E500090D75 /* UIScreen+ScreenHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D971328F1B4A68E500090D75 /* UIScreen+ScreenHelper.m */; };
 		D99D44EB1B3BE26F00BA4CCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D44EA1B3BE26F00BA4CCE /* main.m */; };
 		D99D44EE1B3BE26F00BA4CCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D44ED1B3BE26F00BA4CCE /* AppDelegate.m */; };
 		D99D44F11B3BE26F00BA4CCE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99D44F01B3BE26F00BA4CCE /* ViewController.m */; };
@@ -56,6 +57,8 @@
 		D95CFBBA1B42B3FF002DE528 /* FreeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeLayout.m; sourceTree = "<group>"; };
 		D95CFBBB1B42B3FF002DE528 /* LineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayout.h; sourceTree = "<group>"; };
 		D95CFBBC1B42B3FF002DE528 /* LineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLayout.m; sourceTree = "<group>"; };
+		D971328E1B4A68E500090D75 /* UIScreen+ScreenHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+ScreenHelper.h"; sourceTree = "<group>"; };
+		D971328F1B4A68E500090D75 /* UIScreen+ScreenHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+ScreenHelper.m"; sourceTree = "<group>"; };
 		D99D44E51B3BE26F00BA4CCE /* AutolayoutDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutolayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99D44E91B3BE26F00BA4CCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D99D44EA1B3BE26F00BA4CCE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 				D99D450F1B3BE2E800BA4CCE /* UIViewAdditions.h */,
 				D99D45101B3BE2E800BA4CCE /* UIViewAdditions.m */,
 				D91CC7891B41521700800862 /* UIView+LayoutAdditions.h */,
+				D971328E1B4A68E500090D75 /* UIScreen+ScreenHelper.h */,
+				D971328F1B4A68E500090D75 /* UIScreen+ScreenHelper.m */,
 				D91CC78A1B41521700800862 /* UIView+LayoutAdditions.m */,
 				D99D45191B3BFA6900BA4CCE /* UIView+FreeLayout.h */,
 				D99D451A1B3BFA6900BA4CCE /* UIView+FreeLayout.m */,
@@ -356,6 +361,7 @@
 				D91A53731B459679006B8A75 /* FoldLinelayoutViewController.m in Sources */,
 				D9E25FC11B42C366002EB4E4 /* LayoutItem.m in Sources */,
 				D99D45111B3BE2E800BA4CCE /* UIViewAdditions.m in Sources */,
+				D97132901B4A68E500090D75 /* UIScreen+ScreenHelper.m in Sources */,
 				D91CC78B1B41521700800862 /* UIView+LayoutAdditions.m in Sources */,
 				D91A53761B459D2B006B8A75 /* FreelayoutViewController.m in Sources */,
 				D99D44F11B3BE26F00BA4CCE /* ViewController.m in Sources */,
