@@ -165,6 +165,16 @@
     lineBtn.centerY=CGRectGetMidY(self.bounds);
     [lineBtn addTarget:self action:@selector(lineBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:lineBtn];
+    
+    UIButton *insertsBtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [insertsBtn setTitle:@"修改" forState:UIControlStateNormal];
+    [insertsBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    insertsBtn.backgroundColor = [UIColor yellowColor];
+    insertsBtn.frame=CGRectMake(0,0,30,30);
+    insertsBtn.centerX=CGRectGetMidX(self.bounds);
+    insertsBtn.centerY=CGRectGetMidY(self.bounds)+50;
+    [insertsBtn addTarget:self action:@selector(insertsBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:insertsBtn];
 }
 
 #pragma mark - layoutSubviews 子视图布局
@@ -229,6 +239,13 @@
                                .linelayoutTuple(self.lab7,16);
                            }];
     }
+
+}
+
+-(void)insertsBtnAction:(UIButton*)btn{
+    //view的内边距
+    self.insets = UIEdgeInsetsMake(30, 30, 30, 30);
+
 
 }
 

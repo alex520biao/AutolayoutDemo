@@ -15,8 +15,18 @@
 static const void *kPropertyKeyInsets = &kPropertyKeyInsets;
 //@dynamic insets;
 -(void)setInsets:(UIEdgeInsets)insets{
+    //inserts没有变化则无需修改
+    NSValue *oldValue = objc_getAssociatedObject(self, kPropertyKeyInsets);
+    if (oldValue && UIEdgeInsetsEqualToEdgeInsets([oldValue UIEdgeInsetsValue], insets)) {
+        return;
+    }
+    
     NSValue *value = [NSValue valueWithUIEdgeInsets:insets];
     objc_setAssociatedObject(self, kPropertyKeyInsets, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    //inserts变化需要立即触发layout
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 - (UIEdgeInsets)insets{
@@ -32,8 +42,18 @@ static const void *kPropertyKeyInsets = &kPropertyKeyInsets;
 static const void *kPropertyKeyMargins = &kPropertyKeyMargins;
 //@dynamic margins;
 -(void)setMargins:(UIEdgeInsets)margins{
+    //margins没有变化则无需修改
+    NSValue *oldValue = objc_getAssociatedObject(self, kPropertyKeyMargins);
+    if (oldValue && UIEdgeInsetsEqualToEdgeInsets([oldValue UIEdgeInsetsValue], margins)) {
+        return;
+    }
+
     NSValue *value = [NSValue valueWithUIEdgeInsets:margins];
     objc_setAssociatedObject(self, kPropertyKeyMargins, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    //inserts变化需要立即触发layout
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 - (UIEdgeInsets)margins{
