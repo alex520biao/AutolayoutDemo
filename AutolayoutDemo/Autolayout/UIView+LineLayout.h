@@ -12,22 +12,26 @@
 @class LineLayout;
 /*!
  *  @brief  UIView线性布局
- #  @note   LineLayout是FreeLayout的一种特殊情况。使用一个二维线段将若干子视图串联起来，最后呈现出的布局效果。
+ #  @note   LineLayout是FreeLayout的一种特殊情况。依据直线布局子视图。
  *
  */
 @interface UIView (LineLayout)
 
 #pragma mark - lineLayout线性布局
-
 /*!
- *  @brief  为LLType类型添加布局约束(每种LLType类型的layout对象可以同时存在)
- #  @note   此方法会触发layoutsubviews调用,因此layoutsubviews中不能调用此方法否则会死循环
+ *  @brief  给当前UIView添加一个LLType类型的线型布局约束
+ *  @note   此方法会触发layoutsubviews调用,因此layoutsubviews中不能调用此方法否则会死循环
  *
+ *  @param tag   layout的tag
+ *  @param type  线性布局LLType类型
+ *  @param block 使用block加载layoutItem
  */
-- (LineLayout *)linelayoutWithType:(LLType)type  block:(void(^)(LineLayout *layout))block;
+- (LineLayout *)linelayoutWithTag:(int)tag
+                             type:(LLType)type
+                            block:(void(^)(LineLayout *layout))block;
 
 /*!
- *  @brief  移除LLType对应的布局约束
+ *  @brief  移除当前UIView上所有LLType类型的线性布局
  *
  */
 -(void)removeLinelayoutWithType:(LLType)type;

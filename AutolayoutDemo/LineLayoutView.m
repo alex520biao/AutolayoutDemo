@@ -201,21 +201,25 @@
         [self removeAllLinelayout];
         
         //添加线性布局约束
-        [self linelayoutWithType:LLTypeLeftTop_Down
-                           block:^(LineLayout *layout) {
-                               layout.linelayoutTuple(self.lab1,10)
-                               .linelayoutTuple(self.lab2,11)
-                               .linelayoutTuple(self.lab3,12)
-                               .linelayoutTuple(self.lab4,13);
-                           }];
+        [self linelayoutWithTag:10080
+                           type:LLTypeLeftTop_Down
+                          block:^(LineLayout *layout) {
+                              layout
+                              .linelayoutTuple(self.lab1,10)
+                              .linelayoutTuple(self.lab2,11)
+                              .linelayoutTuple(self.lab3,12)
+                              .linelayoutTuple(self.lab4,13);
+                          }];
         
-        //添加线性布局约束
-        [self linelayoutWithType:LLTypeRightBottom_Up
-                           block:^(LineLayout *layout) {
-                               layout.linelayoutTuple(self.lab5,14)
-                               .linelayoutTuple(self.lab6,15)
-                               .linelayoutTuple(self.lab7,16);
-                           }];
+        [self linelayoutWithTag:10081
+                           type:LLTypeRightBottom_Up
+                          block:^(LineLayout *layout) {
+                              layout
+                              .linelayoutTuple(self.lab5,14)
+                              .linelayoutTuple(self.lab6,15)
+                              .linelayoutTuple(self.lab7,16);
+                          }];
+        
     }else{
         sender.tag = 1;
 
@@ -223,21 +227,25 @@
         [self removeAllLinelayout];
 
         //添加线性布局约束(根据不同的设备设置不同的间距)
-        [self linelayoutWithType:LLTypeLeftBottom_Up
-                           block:^(LineLayout *layout) {
-                               layout.linelayoutTuple(self.lab1,SSLNG(10.0f, 15.0f, 15.0f, 85.0f))
-                               .linelayoutTuple(self.lab2,11)
-                               .linelayoutTuple(self.lab3,12)
-                               .linelayoutTuple(self.lab4,13);
-                           }];
+        [self linelayoutWithTag:10082
+                           type:LLTypeLeftBottom_Up
+                          block:^(LineLayout *layout) {
+                              layout
+                              .linelayoutTuple(self.lab1,SSLNG(10.0f, 15.0f, 15.0f, 85.0f))
+                              .linelayoutTuple(self.lab2,11)
+                              .linelayoutTuple(self.lab3,12)
+                              .linelayoutTuple(self.lab4,13);
+                          }];
         
         //添加线性布局约束
-        [self linelayoutWithType:LLTypeRightTop_Down
-                           block:^(LineLayout *layout) {
-                               layout.linelayoutTuple(self.lab5,14)
-                               .linelayoutTuple(self.lab6,15)
-                               .linelayoutTuple(self.lab7,16);
-                           }];
+        [self linelayoutWithTag:10083
+                           type:LLTypeRightTop_Down
+                          block:^(LineLayout *layout) {
+                              layout
+                              .linelayoutTuple(self.lab5,14)
+                              .linelayoutTuple(self.lab6,15)
+                              .linelayoutTuple(self.lab7,16);
+                          }];
     }
 
 }

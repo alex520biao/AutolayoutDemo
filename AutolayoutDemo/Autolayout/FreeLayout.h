@@ -52,7 +52,7 @@ typedef FreeLayout *(^AddFreeLayoutOffsetBlock)(UIOffset offset);
 @property (nonatomic, weak) UIView *view;
 
 /*!
- *  @brief  开始布局起点
+ *  @brief  开始布局起点(view上的内顶点)
  */
 @property (nonatomic, assign) FLVertex startVertex;
 
@@ -83,14 +83,38 @@ typedef FreeLayout *(^AddFreeLayoutOffsetBlock)(UIOffset offset);
 
 
 #pragma mark - 自由布局
+/*!
+ *  @brief  自由布局对象的锚点位置
+ */
 @property (nonatomic, assign) CGPoint freeAnchor;
 
+/*!
+ *  @brief  根据view的startVertex布局起点重置freeAnchor锚点位置
+ */
 -(void)freeAnchorReset;
 
+/*!
+ *  @brief  直接设置当前布局freeAnchor锚点位置
+ *
+ *  @param freeAnchor
+ */
 -(FreeLayout*)freelayoutFreeAnchor:(CGPoint)freeAnchor;
 
+/*!
+ *  @brief  根据UIOffset平面偏移量来修改freeAnchor锚点位置
+ *
+ *  @param offset 平面偏移量
+ */
 -(FreeLayout*)freelayoutOffset:(UIOffset)offset;
 
+/*!
+ *  @brief  布局subview子视图
+ *  @note   将freeAnchor赋值给subview的vertexBrfore顶点, subview.vertexBrfore = freeAnchor;
+ *
+ *  @param subview
+ *  @param vertexBrfore
+ *  @param vertexAfter
+ */
 -(FreeLayout*)freelayoutSubview:(UIView *)subview
                    vertexBrfore:(FLVertex)vertexBrfore
                     vertexAfter:(FLVertex)vertexAfter;
@@ -126,9 +150,9 @@ typedef FreeLayout *(^AddFreeLayoutOffsetBlock)(UIOffset offset);
  */
 @property(nonatomic,readonly) AddFreeLayoutOffsetBlock freeLayoutOffset;
 
-#pragma mark - 私有方法
+#pragma mark - 私有方法(此方法外部不要直接调用)
 /*!
- *  @brief  使用view、subview进行布局(不要直接调用)
+ *  @brief  使用FreeLayout对象参数(view、startVertex、layoutItemList)对view进行子视图布局
  *
  */
 -(void)layout;

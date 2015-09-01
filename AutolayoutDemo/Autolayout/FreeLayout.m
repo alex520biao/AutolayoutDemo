@@ -245,7 +245,8 @@
 -(FreeLayout*)freelayoutSubview:(UIView *)subview
                    vertexBrfore:(FLVertex)vertexBrfore
                     vertexAfter:(FLVertex)vertexAfter{
-    if (subview) {
+    //subview必须是self.view的子视图
+    if (subview && [self.view.subviews containsObject:subview] && !subview.hidden) {
         //根据vertexBrfore修改subview位置
         [self freelayoutSubview:subview vertexBrfore:vertexBrfore];
         

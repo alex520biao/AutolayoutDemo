@@ -168,15 +168,17 @@
     [self.view removeAllLinelayout];
 
     //添加线性布局约束
-    [self.view linelayoutWithType:LLTypeRightBottom_Up
-                       block:^(LineLayout *layout) {
-                           layout.lineLayoutSpacing(30)
-                                .linelayoutTuple(self.lab8,10)
-                                .linelayoutTuple(self.lab9,10)
-                                .linelayoutTuple(self.lab10,10)
-                                .linelayoutTuple(self.lab11,10)
-                                .linelayoutTuple(self.lab12,10);
-                       }];
+    [self.view linelayoutWithTag:10087
+                            type:LLTypeRightBottom_Up
+                           block:^(LineLayout *layout) {
+                               layout
+                               .lineLayoutSpacing(30)
+                               .linelayoutTuple(self.lab8,10)
+                               .linelayoutTuple(self.lab9,10)
+                               .linelayoutTuple(self.lab10,10)
+                               .linelayoutTuple(self.lab11,10)
+                               .linelayoutTuple(self.lab12,10);
+                           }];
 }
 
 -(void)foldBtnAction:(id)sender{

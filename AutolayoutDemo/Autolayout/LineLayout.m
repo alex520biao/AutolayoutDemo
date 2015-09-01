@@ -13,12 +13,13 @@
 
 @implementation LineLayout
 
--(LineLayout*)initWithView:(UIView*)view
-                      type:(LLType)type
-                     block:(void(^)(LineLayout *layout))block{
-
+-(LineLayout*)initWithTag:(int)tag
+                     view:(UIView*)view
+                     type:(LLType)type
+                    block:(void(^)(LineLayout *layout))block{
+    
     //每种LLType只能添加一个layout对象
-    NSString *key = [NSString stringWithFormat:@"freeLayoutKeyLine%d",type];
+    NSString *key = [NSString stringWithFormat:@"kFreeLayoutKey%d",tag];
     FLVertex startVertex = [self startVertexWithType:type];
     self = [super initWithKey:key view:view start:startVertex block:nil];
     if (self) {

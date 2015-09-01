@@ -52,9 +52,10 @@ typedef LineLayout *(^AddLineLayoutSpacingBlock)(CGFloat spacing);
 @property (nonatomic, assign) LLType type;
 
 
--(LineLayout*)initWithView:(UIView*)view
-                      type:(LLType)type
-                     block:(void(^)(LineLayout *layout))block;
+-(LineLayout*)initWithTag:(int)tag
+                     view:(UIView*)view
+                     type:(LLType)type
+                    block:(void(^)(LineLayout *layout))block;
 
 #pragma mark - 包装Block
 /*!
