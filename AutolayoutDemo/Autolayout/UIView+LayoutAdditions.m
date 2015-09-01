@@ -135,7 +135,7 @@ static const void *kPropertyKeyMargins = &kPropertyKeyMargins;
 //中上顶点
 -(void)setVertexCenterTop:(CGPoint)vertexCenterTop{
     self.centerX = vertexCenterTop.x;
-    self.centerY = vertexCenterTop.y;
+    self.top = vertexCenterTop.y;
 }
 
 -(CGPoint) vertexCenterTop{
@@ -157,7 +157,7 @@ static const void *kPropertyKeyMargins = &kPropertyKeyMargins;
 //中下顶点
 -(void)setVertexCenterBottom:(CGPoint)vertexCenterBottom{
     self.centerX = vertexCenterBottom.x;
-    self.centerY = vertexCenterBottom.y;
+    self.bottom = vertexCenterBottom.y;
 }
 
 -(CGPoint) vertexCenterBottom{
