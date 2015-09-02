@@ -133,11 +133,17 @@
     [self freelayoutWithTag:10086
                       start:FLVertexLeftTop
                       block:^(FreeLayout *layout) {
-                          layout.freelayoutTuple(self.lab8,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
-                          .freelayoutTuple(self.lab9,FLVertexLeftTop,FLVertexLeftBottom,UIOffsetMake(0, 10))
-                          .freelayoutTuple(self.lab10,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
-                          .freelayoutTuple(self.lab11,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 10))
-                          .freelayoutTuple(self.lab12,FLVertexRightTop,FLVertexRightBottom,UIOffsetMake(0, 10));
+                          layout
+                          .freeLayoutSubview(self.lab8,FLVertexLeftTop,FLVertexRightTop)
+                          .freeLayoutOffset(UIOffsetMake(10, 0))
+                          .freeLayoutSubview(self.lab9,FLVertexLeftTop,FLVertexLeftBottom)
+                          .freeLayoutOffset(UIOffsetMake(0, 10))
+                          .freeLayoutSubview(self.lab10,FLVertexLeftTop,FLVertexRightTop)
+                          .freeLayoutOffset(UIOffsetMake(10, 0))
+                          .freeLayoutSubview(self.lab11,FLVertexLeftTop,FLVertexRightBottom)
+                          .freeLayoutOffset(UIOffsetMake(0, 10))
+                          .freeLayoutSubview(self.lab12,FLVertexRightTop,FLVertexRightBottom)
+                          .freeLayoutOffset(UIOffsetMake(0, 10));
                       }];
 }
 

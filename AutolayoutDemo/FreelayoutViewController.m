@@ -163,8 +163,6 @@
     self.view.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     
     //移除已有布局约束
-//    [self.view removeFreelayoutWithTag:10086];
-//    [self.view removeFreelayoutWithTag:10087];
     [self.view removeAllLinelayout];
 
     //添加线性布局约束
@@ -185,20 +183,24 @@
     self.view.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     
     //移除已有布局约束
-//    [self.view removeLinelayoutWithType:LLTypeRightBottom_Up];
-//    [self.view removeFreelayoutWithTag:10087];
     [self.view removeAllLinelayout];
     
     //纯自由相对布局(较复杂)
     [self.view freelayoutWithTag:10086
                            start:FLVertexLeftTop
                            block:^(FreeLayout *layout) {
-                               layout.freeLayoutOffset(UIOffsetMake(50, 100))
-                               .freelayoutTuple(self.lab8,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
-                               .freelayoutTuple(self.lab9,FLVertexLeftTop,FLVertexLeftBottom,UIOffsetMake(0, 10))
-                               .freelayoutTuple(self.lab10,FLVertexLeftTop,FLVertexRightTop,UIOffsetMake(10, 0))
-                               .freelayoutTuple(self.lab11,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 10))
-                               .freelayoutTuple(self.lab12,FLVertexRightTop,FLVertexRightBottom,UIOffsetMake(0, 10));
+                               layout
+                               .freeLayoutOffset(UIOffsetMake(50, 100))
+                               .freeLayoutSubview(self.lab8,FLVertexLeftTop,FLVertexRightTop)
+                               .freeLayoutOffset(UIOffsetMake(10, 0))
+                               .freeLayoutSubview(self.lab9,FLVertexLeftTop,FLVertexLeftBottom)
+                               .freeLayoutOffset(UIOffsetMake(0, 10))
+                               .freeLayoutSubview(self.lab10,FLVertexLeftTop,FLVertexRightTop)
+                               .freeLayoutOffset(UIOffsetMake(10, 0))
+                               .freeLayoutSubview(self.lab11,FLVertexLeftTop,FLVertexRightBottom)
+                               .freeLayoutOffset(UIOffsetMake(0, 10))
+                               .freeLayoutSubview(self.lab12,FLVertexRightTop,FLVertexRightBottom)
+                               .freeLayoutOffset(UIOffsetMake(0, 10));
                            }];
 }
 
@@ -206,20 +208,24 @@
     self.view.insets = UIEdgeInsetsMake(20, 20, 20, 20);
     
     //移除已有布局约束
-//    [self.view removeLinelayoutWithType:LLTypeRightBottom_Up];
-//    [self.view removeFreelayoutWithTag:10086];
     [self.view removeAllLinelayout];
     
     //纯自由相对布局(较复杂)
     [self.view freelayoutWithTag:10087
                            start:FLVertexLeftTop
                            block:^(FreeLayout *layout) {
-                               layout.freeLayoutOffset(UIOffsetMake(20, 100))
-                               .freelayoutTuple(self.lab8,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 0))
-                               .freelayoutTuple(self.lab9,FLVertexLeftTop,FLVertexRightBottom,UIOffsetMake(0, 0))
-                               .freelayoutTuple(self.lab10,FLVertexLeftTop,FLVertexLeftBottom,UIOffsetMake(0, 0))
-                               .freelayoutTuple(self.lab11,FLVertexRightTop,FLVertexLeftBottom,UIOffsetMake(0, 0))
-                               .freelayoutTuple(self.lab12,FLVertexRightTop,FLVertexRightBottom,UIOffsetMake(0, 0));
+                               layout
+                               .freeLayoutOffset(UIOffsetMake(20, 100))
+                               .freeLayoutSubview(self.lab8,FLVertexLeftTop,FLVertexRightBottom)
+                               .freeLayoutOffset(UIOffsetMake(0, 0))
+                               .freeLayoutSubview(self.lab9,FLVertexLeftTop,FLVertexRightBottom)
+                               .freeLayoutOffset(UIOffsetMake(0, 0))
+                               .freeLayoutSubview(self.lab10,FLVertexLeftTop,FLVertexLeftBottom)
+                               .freeLayoutOffset(UIOffsetMake(0, 0))
+                               .freeLayoutSubview(self.lab11,FLVertexRightTop,FLVertexLeftBottom)
+                               .freeLayoutOffset(UIOffsetMake(0, 0))
+                               .freeLayoutSubview(self.lab12,FLVertexRightTop,FLVertexRightBottom)
+                               .freeLayoutOffset(UIOffsetMake(0, 0));
                            }];
 }
 

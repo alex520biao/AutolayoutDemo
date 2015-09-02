@@ -54,10 +54,9 @@
 }
 
 /*!
- *  @brief  根据startVertex决定freeAnchor的起始位置
- *
+ *  @brief  根据view的startVertex布局起点重置freeAnchor锚点位置
  */
--(void)freeAnchorReset{
+-(void)freeAnchorResetWithStartVertex{
     CGPoint point = CGPointZero;
     //此处startVertex表示self.view自身坐标系bounds中的顶点
     if (self.view) {        
@@ -135,49 +134,40 @@
     
     //左上顶点
     if(vertexBrfore == FLVertexLeftTop){
-        subview.left = freeAnchor.x;
-        subview.top = freeAnchor.y;
+        subview.vertexLeftTop = freeAnchor;
     }
     //左中顶点
     else if (vertexBrfore == FLVertexLeftCenter){
         //将subview的左下顶点设置为freeAnchor
-        subview.left = freeAnchor.x;
-        subview.centerY = freeAnchor.y;
+        subview.vertexLeftCenter = freeAnchor;
     }
     //左下顶点
     else if (vertexBrfore == FLVertexLeftBottom){
-        subview.left = freeAnchor.x;
-        subview.bottom = freeAnchor.y;
+        subview.vertexLeftBottom = freeAnchor;
     }
     //右上顶点
     else if (vertexBrfore == FLVertexRightTop){
-        subview.right = freeAnchor.x;
-        subview.top = freeAnchor.y;
+        subview.vertexRightTop = freeAnchor;
     }
     //右中顶点
     else if (vertexBrfore == FLVertexRightCneter){
-        subview.right = freeAnchor.x;
-        subview.centerY = freeAnchor.y;
+        subview.vertexRightCneter = freeAnchor;
     }
     //右下顶点
     else if (vertexBrfore == FLVertexRightBottom){
-        subview.right = freeAnchor.x;
-        subview.bottom = freeAnchor.y;
+        subview.vertexRightBottom = freeAnchor;
     }
     //中上顶点
     else if (vertexBrfore == FLVertexCenterTop){
-        subview.centerX = freeAnchor.x;
-        subview.top = freeAnchor.y;
+        subview.vertexCenterTop = freeAnchor;
     }
     //中中顶点
     else if (vertexBrfore == FLVertexCenterCenter){
-        subview.centerX = freeAnchor.x;
-        subview.centerY = freeAnchor.y;
+        subview.vertexCenterCenter = freeAnchor;
     }
     //中下顶点
     else if (vertexBrfore == FLVertexCenterBottom){
-        subview.centerX = freeAnchor.x;
-        subview.bottom = freeAnchor.y;
+        subview.vertexCenterBottom = freeAnchor;
     }
     
     return self;
@@ -195,47 +185,39 @@
     //根据vertexAfter修改freeAnchor位置
     //左上顶点
     if(vertexAfter == FLVertexLeftTop){
-        freeAnchor = subview.frame.origin;
+        freeAnchor = subview.vertexLeftTop;
     }
     //左中顶点
     else if (vertexAfter == FLVertexLeftCenter){
-        freeAnchor.x = subview.left;
-        freeAnchor.y = subview.centerY;
+        freeAnchor = subview.vertexLeftCenter;
     }
     //左下顶点
     else if (vertexAfter == FLVertexLeftBottom){
-        freeAnchor.x = subview.left;
-        freeAnchor.y = subview.bottom;
+        freeAnchor = subview.vertexLeftBottom;
     }
     //右上顶点
     else if (vertexAfter == FLVertexRightTop){
-        freeAnchor.x = subview.right;
-        freeAnchor.y = subview.top;
+        freeAnchor = subview.vertexRightTop;
     }
     //右中顶点
     else if (vertexAfter == FLVertexRightCneter){
-        freeAnchor.x = subview.right;
-        freeAnchor.y = subview.centerY;
+        freeAnchor = subview.vertexRightCneter;
     }
     //右下顶点
     else if (vertexAfter == FLVertexRightBottom){
-        freeAnchor.x = subview.right;
-        freeAnchor.y = subview.bottom;
+        freeAnchor = subview.vertexRightBottom;
     }
     //中上顶点
     else if (vertexAfter == FLVertexCenterTop){
-        freeAnchor.x = subview.centerX;
-        freeAnchor.y = subview.top;
+        freeAnchor = subview.vertexCenterTop;
     }
     //中中顶点
     else if (vertexAfter == FLVertexCenterCenter){
-        freeAnchor.x = subview.centerX;
-        freeAnchor.y = subview.centerY;
+        freeAnchor = subview.vertexCenterCenter;
     }
     //中下顶点
     else if (vertexAfter == FLVertexCenterBottom){
-        freeAnchor.x = subview.centerX;
-        freeAnchor.y = subview.bottom;
+        freeAnchor = subview.vertexCenterBottom;
     }
     self.freeAnchor = freeAnchor;
     
@@ -256,26 +238,6 @@
     return self;
 }
 
--(FreeLayout*)freelayoutSubview:(UIView *)subview
-                   vertexBrfore:(FLVertex)vertexBrfore
-                    vertexAfter:(FLVertex)vertexAfter
-                         offset:(UIOffset)offset{
-    
-    //只有view上的显示的subview才允许参与布局
-    if(subview && [self.view.subviews containsObject:subview] && !subview.hidden){
-        //根据vertexBrfore修改subview位置
-        [self freelayoutSubview:subview vertexBrfore:vertexBrfore];
-        
-        //根据vertexAfter修改freeAnchor位置
-        [self freelayoutSubview:subview vertexAfter:vertexAfter];
-        
-        //freeAnchor偏移位置
-        [self freelayoutOffset:offset];
-    }
-    return self;
-}
-
-#pragma mark - 对外封装LayoutItem方法
 -(FreeLayout*)freelayoutItem:(LayoutItem *)layoutItem{
     //subview
     if(layoutItem.layoutItemType == LayoutItemTypeSubview){
@@ -305,7 +267,7 @@
 -(void)layout{
     if(self.view && self.layoutItemList.count>0){
         //重置freeAnchor标识
-        [self freeAnchorReset];
+        [self freeAnchorResetWithStartVertex];
 
         for (int i=0; i<self.layoutItemList.count; i++) {
             LayoutItem *item =[self.layoutItemList objectAtIndex:i];
@@ -321,29 +283,6 @@
             }
         }
     }
-}
-
-- (AddFreeLayoutTupleBlock) freelayoutTuple{
-    return ^(UIView *subview,FLVertex vertexBrfore,FLVertex vertexAfter,UIOffset offset) {
-        
-        //subview必须是view的子视图
-        if(subview && [self.view.subviews containsObject:subview]){
-            //subview
-            LayoutItem *subviewItem = [[LayoutItem alloc] init];
-            subviewItem.layoutItemType = LayoutItemTypeSubview;
-            subviewItem.subview = subview;
-            subviewItem.vertexBrfore = vertexBrfore;
-            subviewItem.vertexAfter = vertexAfter;
-            [self.layoutItemList addObject:subviewItem];
-            
-            //offset
-            LayoutItem *offsetItem = [[LayoutItem alloc] init];
-            offsetItem.layoutItemType = LayoutItemTypeOffset;
-            offsetItem.offset = offset;
-            [self.layoutItemList addObject:offsetItem];
-        }
-        return self;
-    };
 }
 
 - (AddFreeLayoutSubviewBlock) freeLayoutSubview{
