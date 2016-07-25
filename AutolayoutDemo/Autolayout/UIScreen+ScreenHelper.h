@@ -2,7 +2,7 @@
 //  UIScreen+ScreenHelper.h
 //  DiCarpool
 //
-//  Created by liubiao on 15/6/12.
+//  Created by alex520biao on 15/6/12.
 //  Copyright (c) 2015年 DiDi. All rights reserved.
 //
 

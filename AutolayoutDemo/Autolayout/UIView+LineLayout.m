@@ -2,7 +2,7 @@
 //  UIView+LineLayout.m
 //  AutolayoutDemo
 //
-//  Created by liubiao on 15/7/1.
+//  Created by alex520biao on 15/7/1.
 //  Copyright (c) 2015年 alex. All rights reserved.
 //
 

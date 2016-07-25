@@ -12,6 +12,7 @@
 		D91A53761B459D2B006B8A75 /* FreelayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91A53751B459D2B006B8A75 /* FreelayoutViewController.m */; };
 		D91CC78B1B41521700800862 /* UIView+LayoutAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CC78A1B41521700800862 /* UIView+LayoutAdditions.m */; };
 		D91CC78E1B4155F800800862 /* FreeLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CC78D1B4155F800800862 /* FreeLayoutView.m */; };
+		D93474D91D461FE700151528 /* UIView+FlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D93474D81D461FE700151528 /* UIView+FlowLayout.m */; };
 		D95CFBB21B42624D002DE528 /* LineLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CFBB11B42624D002DE528 /* LineLayoutView.m */; };
 		D95CFBBD1B42B3FF002DE528 /* FreeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CFBBA1B42B3FF002DE528 /* FreeLayout.m */; };
 		D95CFBBE1B42B3FF002DE528 /* LineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CFBBC1B42B3FF002DE528 /* LineLayout.m */; };
@@ -51,6 +52,8 @@
 		D91CC78A1B41521700800862 /* UIView+LayoutAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutAdditions.m"; sourceTree = "<group>"; };
 		D91CC78C1B4155F800800862 /* FreeLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeLayoutView.h; sourceTree = "<group>"; };
 		D91CC78D1B4155F800800862 /* FreeLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeLayoutView.m; sourceTree = "<group>"; };
+		D93474D71D461FE700151528 /* UIView+FlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FlowLayout.h"; sourceTree = "<group>"; };
+		D93474D81D461FE700151528 /* UIView+FlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FlowLayout.m"; sourceTree = "<group>"; };
 		D95CFBB01B42624D002DE528 /* LineLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayoutView.h; sourceTree = "<group>"; };
 		D95CFBB11B42624D002DE528 /* LineLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLayoutView.m; sourceTree = "<group>"; };
 		D95CFBB91B42B3FF002DE528 /* FreeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeLayout.h; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 				D91CC78D1B4155F800800862 /* FreeLayoutView.m */,
 				D95CFBB01B42624D002DE528 /* LineLayoutView.h */,
 				D95CFBB11B42624D002DE528 /* LineLayoutView.m */,
+				D93474D71D461FE700151528 /* UIView+FlowLayout.h */,
+				D93474D81D461FE700151528 /* UIView+FlowLayout.m */,
 				D99D44F51B3BE26F00BA4CCE /* Images.xcassets */,
 				D99D44E81B3BE26F00BA4CCE /* Supporting Files */,
 			);
@@ -374,6 +379,7 @@
 				D91CC78E1B4155F800800862 /* FreeLayoutView.m in Sources */,
 				D99E66ED1B43849D005B8CCB /* UIView+LineLayout.m in Sources */,
 				D9E61E201B458E2200C420ED /* StraightLinelayoutViewController.m in Sources */,
+				D93474D91D461FE700151528 /* UIView+FlowLayout.m in Sources */,
 				D99D44EB1B3BE26F00BA4CCE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
