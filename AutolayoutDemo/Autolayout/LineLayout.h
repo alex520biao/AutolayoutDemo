@@ -49,7 +49,7 @@ typedef LineLayout *(^AddLineLayoutSpacingBlock)(CGFloat spacing);
 /*!
  *  @brief  线性布局类型(12种)
  */
-@property (nonatomic, assign) LLType type;
+@property (nonatomic, assign, readonly) LLType type;
 
 
 -(LineLayout*)initWithTag:(int)tag

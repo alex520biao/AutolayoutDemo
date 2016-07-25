@@ -11,6 +11,15 @@
 #import "LayoutItem.h"
 #import "UIView+LayoutAdditions.h"
 
+@interface LineLayout ()
+
+/*!
+ *  @brief  线性布局类型(12种)
+ */
+@property (nonatomic, assign, readwrite) LLType type;
+
+@end
+
 @implementation LineLayout
 
 -(LineLayout*)initWithTag:(int)tag
